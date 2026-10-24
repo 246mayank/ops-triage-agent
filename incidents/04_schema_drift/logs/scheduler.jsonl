@@ -1,0 +1,14 @@
+{"ts": "2026-10-16T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261015", "msg": "triggered order_sync run_date=2026-10-15 worker=loader-w1"}
+{"ts": "2026-10-16T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}
+{"ts": "2026-10-17T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261016", "msg": "triggered order_sync run_date=2026-10-16 worker=loader-w1"}
+{"ts": "2026-10-17T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}
+{"ts": "2026-10-18T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261017", "msg": "triggered order_sync run_date=2026-10-17 worker=loader-w1"}
+{"ts": "2026-10-18T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}
+{"ts": "2026-10-19T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261018", "msg": "triggered order_sync run_date=2026-10-18 worker=loader-w1"}
+{"ts": "2026-10-19T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}
+{"ts": "2026-10-20T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261019", "msg": "triggered order_sync run_date=2026-10-19 worker=loader-w1"}
+{"ts": "2026-10-20T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}
+{"ts": "2026-10-21T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261020", "msg": "triggered order_sync run_date=2026-10-20 worker=loader-w1"}
+{"ts": "2026-10-21T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}
+{"ts": "2026-10-22T02:00:00Z", "level": "INFO", "service": "scheduler", "job_id": "os-20261021", "msg": "triggered order_sync run_date=2026-10-21 worker=loader-w1"}
+{"ts": "2026-10-22T02:00:01Z", "level": "INFO", "service": "scheduler", "job_id": null, "msg": "retry sweep: retryable_states=['FAILED']; 0 runs to retry"}

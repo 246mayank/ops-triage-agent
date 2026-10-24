@@ -1,0 +1,5 @@
+calls:
+- tool: search_logs
+  args:
+    service: validator
+    level: ERROR

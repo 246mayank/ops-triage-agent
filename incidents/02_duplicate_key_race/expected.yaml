@@ -1,0 +1,12 @@
+incident: 02_duplicate_key_race
+split: dev
+status: diagnosed
+category: concurrency_race
+required_evidence:
+- id: second_worker
+  match: loader-w2
+- id: unique_violation
+  match: UNIQUE constraint failed
+min_evidence_hits: 2
+fix_hint: Dispatch each run to exactly one worker (claim the run atomically) and make the
+  insert idempotent (upsert on order_id).

@@ -1,0 +1,125 @@
+{"ts": "2026-10-16T02:00:10Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=1 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:10Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:13Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=2 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:13Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:17Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=3 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:17Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:20Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=4 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:20Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:27Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=5 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:27Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:34Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=6 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:34Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:40Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=7 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:40Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:43Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=8 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:43Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:47Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=9 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:47Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:00:54Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=10 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:00:54Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:01:00Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=11 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:01:00Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:01:05Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=12 -> 200 (250 rows)"}
+{"ts": "2026-10-16T02:01:05Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:01:10Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-15&page=13 -> 200 (37 rows)"}
+{"ts": "2026-10-16T02:01:10Z", "level": "WARN", "service": "downloader", "job_id": "os-20261015", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-16T02:01:12Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "downloaded orders_2026-10-15.csv rows=3037 bytes=291610 checksum=sha1:1b3bc16edbd13c2f vendor_revision=1"}
+{"ts": "2026-10-16T02:01:13Z", "level": "INFO", "service": "downloader", "job_id": "os-20261015", "msg": "verify orders_2026-10-14.csv: remote checksum matches ingested"}
+{"ts": "2026-10-17T02:00:08Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=1 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:08Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:14Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=2 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:14Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:20Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=3 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:20Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:25Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=4 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:25Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:29Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=5 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:29Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:35Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=6 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:35Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:39Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=7 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:39Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:44Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=8 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:44Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:47Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=9 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:47Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:00:54Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=10 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:00:54Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:01:00Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=11 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:01:00Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:01:05Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=12 -> 200 (250 rows)"}
+{"ts": "2026-10-17T02:01:05Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:01:10Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-16&page=13 -> 200 (49 rows)"}
+{"ts": "2026-10-17T02:01:10Z", "level": "WARN", "service": "downloader", "job_id": "os-20261016", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-17T02:01:12Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "downloaded orders_2026-10-16.csv rows=3049 bytes=292762 checksum=sha1:d327c2c4ddb2bc96 vendor_revision=1"}
+{"ts": "2026-10-17T02:01:13Z", "level": "INFO", "service": "downloader", "job_id": "os-20261016", "msg": "verify orders_2026-10-15.csv: remote checksum matches ingested"}
+{"ts": "2026-10-18T02:00:04Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "attempt 1 failed: connection reset by peer (GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=1); retrying in 2s"}
+{"ts": "2026-10-18T02:00:11Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=1 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:11Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:18Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=2 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:18Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:21Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=3 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:21Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:24Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=4 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:24Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:27Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=5 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:27Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:30Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=6 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:30Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:35Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=7 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:35Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:40Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=8 -> 200 (250 rows)"}
+{"ts": "2026-10-18T02:00:40Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:43Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-17&page=9 -> 200 (24 rows)"}
+{"ts": "2026-10-18T02:00:43Z", "level": "WARN", "service": "downloader", "job_id": "os-20261017", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-18T02:00:45Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "downloaded orders_2026-10-17.csv rows=2024 bytes=194362 checksum=sha1:16efbf2ff4187703 vendor_revision=1"}
+{"ts": "2026-10-18T02:00:46Z", "level": "INFO", "service": "downloader", "job_id": "os-20261017", "msg": "verify orders_2026-10-16.csv: remote checksum matches ingested"}
+{"ts": "2026-10-19T02:00:12Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=1 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:12Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:17Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=2 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:17Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:22Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=3 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:22Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:25Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=4 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:25Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:31Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=5 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:31Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:36Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=6 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:36Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:39Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=7 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:39Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:44Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=8 -> 200 (250 rows)"}
+{"ts": "2026-10-19T02:00:44Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:51Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-18&page=9 -> 200 (183 rows)"}
+{"ts": "2026-10-19T02:00:51Z", "level": "WARN", "service": "downloader", "job_id": "os-20261018", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-19T02:00:53Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "downloaded orders_2026-10-18.csv rows=2183 bytes=209626 checksum=sha1:fe6361f0cf955fb0 vendor_revision=1"}
+{"ts": "2026-10-19T02:00:54Z", "level": "INFO", "service": "downloader", "job_id": "os-20261018", "msg": "verify orders_2026-10-17.csv: remote checksum matches ingested"}
+{"ts": "2026-10-20T02:00:10Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=1 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:10Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:17Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=2 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:17Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:23Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=3 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:23Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:26Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=4 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:26Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:32Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=5 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:32Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:35Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=6 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:35Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:39Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=7 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:39Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:42Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=8 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:42Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:47Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=9 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:47Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:51Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=10 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:51Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:00:57Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=11 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:00:57Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:01:03Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=12 -> 200 (250 rows)"}
+{"ts": "2026-10-20T02:01:03Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:01:07Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=13 -> 200 (39 rows)"}
+{"ts": "2026-10-20T02:01:07Z", "level": "WARN", "service": "downloader", "job_id": "os-20261019", "msg": "vendor API field 'cust_ref' is deprecated and will be removed 2027-01-01; use 'customer_id'"}
+{"ts": "2026-10-20T02:01:09Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "downloaded orders_2026-10-19.csv rows=3039 bytes=291802 checksum=sha1:d7b1c6e0ef1803b0 vendor_revision=1"}
+{"ts": "2026-10-20T02:01:10Z", "level": "INFO", "service": "downloader", "job_id": "os-20261019", "msg": "verify orders_2026-10-18.csv: remote checksum matches ingested"}

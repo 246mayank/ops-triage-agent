@@ -1,0 +1,9 @@
+calls:
+- tool: get_job_history
+  args:
+    job_name: order_sync
+    limit: 2
+- tool: search_logs
+  args:
+    service: loader
+    since: '2026-10-22T00:00:00Z'

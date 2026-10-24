@@ -1,0 +1,14 @@
+incident: 08_late_data
+split: dev
+status: diagnosed
+category: late_data
+required_evidence:
+- id: revised_rows
+  match: '3310'
+- id: revision
+  match: vendor_revision=2
+- id: finality
+  match: files_final_after_hours
+min_evidence_hits: 2
+fix_hint: Schedule the load after files are final (T+2), or re-ingest when the verify pass
+  sees a new vendor_revision.

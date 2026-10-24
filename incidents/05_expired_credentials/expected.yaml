@@ -1,0 +1,14 @@
+incident: 05_expired_credentials
+split: dev
+status: diagnosed
+category: auth_failure
+required_evidence:
+- id: http_401
+  match: '401'
+- id: expiry_key
+  match: token_expires_at
+- id: expiry_time
+  match: '2026-10-20T00:00:00Z'
+min_evidence_hits: 2
+fix_hint: Rotate the vendor API token, update token_expires_at, re-run 2026-10-19..21, and
+  alert before token expiry.

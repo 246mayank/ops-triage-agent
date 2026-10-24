@@ -1,0 +1,4 @@
+incident: 03_stuck_job
+fault: stuck_job
+seed: 103
+split: dev

@@ -1,0 +1,6 @@
+calls:
+- tool: search_logs
+  args:
+    service: loader
+    pattern: load started
+    job_id: os-20261020

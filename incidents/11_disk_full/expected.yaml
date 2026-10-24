@@ -1,0 +1,13 @@
+incident: 11_disk_full
+split: dev
+status: diagnosed
+category: resource_exhaustion
+required_evidence:
+- id: enospc
+  match: ENOSPC
+- id: errno
+  match: Errno 28
+- id: disk_warn
+  match: 96%
+min_evidence_hits: 2
+fix_hint: Free or grow /data, alert on disk usage before it fills, then re-run 2026-10-21.

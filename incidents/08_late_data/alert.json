@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0108",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "reconciliation",
+  "message": "Finance reconciliation for 2026-10-20 failed: vendor invoice count is 9% higher than the orders table count"
+}

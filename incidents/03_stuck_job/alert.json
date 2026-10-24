@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0103",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "completeness",
+  "message": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)"
+}

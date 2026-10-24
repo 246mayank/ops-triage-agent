@@ -1,0 +1,8 @@
+calls:
+- tool: get_job_history
+  args:
+    job_name: order_sync
+    limit: 4
+- tool: read_config
+  args:
+    path: pipeline.yaml

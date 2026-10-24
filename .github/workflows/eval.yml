@@ -1,0 +1,57 @@
+name: eval-gate
+
+on:
+  pull_request:
+    paths:
+      - "src/triage/prompts/**"
+      - "src/triage/agent.py"
+      - "src/triage/tools/**"
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install and build incidents
+        run: |
+          set -euo pipefail
+          pip install -e ".[dev]"
+          triage build-incidents
+      - name: Live eval on the dev split (agent only, 1 run)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TRIAGE_MODEL: ${{ vars.TRIAGE_MODEL }}
+        run: |
+          set -euo pipefail
+          # fresh cassettes: the gate must call the model, never replay an old answer
+          rm -rf eval/cassettes
+          triage eval --split dev --runs 1 --systems agent --sleep 2
+      - name: Gate against eval/baseline.json
+        run: |
+          set -euo pipefail
+          report=$(ls -t eval/results/*_dev_*.json | head -1)
+          python - "$report" <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, sys
+          from eval.gate import check, summary_markdown
+          from eval.run_eval import render_markdown
+          rep = json.load(open(sys.argv[1]))
+          ok, lines = check(rep, json.load(open("eval/baseline.json")))
+          print(summary_markdown(rep, ok, lines))
+          print(render_markdown(rep))
+          PY
+          triage gate "$report"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report
+          path: |
+            eval/results/
+            runs/eval/

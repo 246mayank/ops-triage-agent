@@ -1,0 +1,4 @@
+incident: 12_bad_config_deploy
+fault: bad_config_deploy
+seed: 112
+split: test

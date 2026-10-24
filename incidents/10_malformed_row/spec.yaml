@@ -1,0 +1,4 @@
+incident: 10_malformed_row
+fault: malformed_row
+seed: 110
+split: test

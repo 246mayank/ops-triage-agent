@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0101",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "volume_drop",
+  "message": "Order volume for 2026-10-21 is 37% below the 7-day average (threshold 25%)"
+}

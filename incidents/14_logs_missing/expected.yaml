@@ -1,0 +1,8 @@
+incident: 14_logs_missing
+split: test
+status: insufficient_evidence
+category: null
+required_evidence: []
+min_evidence_hits: 0
+fix_hint: Recover the discarded loader log segment (or rerun with logging) before deciding
+  on a fix.

@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0105",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "freshness",
+  "message": "orders freshness: latest loaded_at is 2026-10-19T02:01:50Z, more than 26h ago"
+}

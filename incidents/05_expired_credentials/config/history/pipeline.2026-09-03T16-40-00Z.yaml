@@ -1,0 +1,22 @@
+pipeline: order_sync
+schedule: 0 2 * * *
+timezone: UTC
+vendor:
+  endpoint: https://vendor.example.com/api/v2/orders
+  token_expires_at: '2026-10-20T00:00:00Z'
+  max_retries: 5
+  backoff_seconds: 2
+  page_size: 250
+  files_final_after_hours: 48
+scheduler:
+  retryable_states:
+  - FAILED
+  workers: 2
+loader:
+  batch_size: 250
+  bucket_timezone: local
+  on_insert_error: ignore
+  dedupe_key: order_id
+alerting:
+  volume_drop_threshold_pct: 25
+  freshness_sla_hours: 26

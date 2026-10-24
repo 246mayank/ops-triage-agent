@@ -1,0 +1,8 @@
+calls:
+- tool: config_history
+  args:
+    path: pipeline.yaml
+- tool: search_logs
+  args:
+    service: scheduler
+    pattern: schedule

@@ -1,0 +1,9 @@
+calls:
+- tool: search_logs
+  args:
+    service: downloader
+    pattern: verify
+    level: WARN
+- tool: read_config
+  args:
+    path: pipeline.yaml

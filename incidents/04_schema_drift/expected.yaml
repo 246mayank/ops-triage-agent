@@ -1,0 +1,14 @@
+incident: 04_schema_drift
+split: dev
+status: diagnosed
+category: schema_drift
+required_evidence:
+- id: new_column
+  match: order_amount
+- id: unknown_column
+  match: unknown column
+- id: start_date
+  match: '2026-10-20'
+min_evidence_hits: 2
+fix_hint: Map order_amount to amount (or agree the contract with the vendor), make the schema
+  check strict, and backfill amount for 2026-10-20 and 2026-10-21.

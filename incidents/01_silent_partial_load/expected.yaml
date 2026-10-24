@@ -1,0 +1,14 @@
+incident: 01_silent_partial_load
+split: dev
+status: diagnosed
+category: silent_data_loss
+required_evidence:
+- id: rows_read
+  match: '3200'
+- id: rows_loaded
+  match: '1690'
+- id: suppressed_error
+  match: E_INSERT_SUPPRESSED
+min_evidence_hits: 2
+fix_hint: Check every statement's result instead of batching with on_insert_error=ignore;
+  enforce rows_read = rows_loaded + rows_rejected + rows_deduped on every run.

@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0104",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "null_rate",
+  "message": "Null rate of orders.amount for run_date 2026-10-21 is 100% (threshold 1%)"
+}

@@ -1,0 +1,12 @@
+incident: 13_false_alarm
+split: dev
+status: no_fault
+category: null
+required_evidence:
+- id: reconciled
+  match: gap=0
+- id: seasonality
+  match: weekend seasonality
+min_evidence_hits: 1
+fix_hint: No pipeline fix needed; make the volume_drop rule compare against the same weekday
+  instead of a flat 7-day average.

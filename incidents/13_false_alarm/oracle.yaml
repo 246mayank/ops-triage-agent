@@ -1,0 +1,7 @@
+calls:
+- tool: reconcile_counts
+  args:
+    run_date: '2026-10-18'
+- tool: run_sql
+  args:
+    query: SELECT raised_at, message, resolution FROM alerts WHERE status='closed'

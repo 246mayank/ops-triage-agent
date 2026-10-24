@@ -1,0 +1,14 @@
+incident: 07_timezone_boundary
+split: test
+status: diagnosed
+category: timezone_boundary
+required_evidence:
+- id: host_tz
+  match: America/New_York
+- id: bucket_setting
+  match: bucket_timezone
+- id: new_host
+  match: etl-02
+min_evidence_hits: 2
+fix_hint: 'Set bucket_timezone: UTC explicitly instead of local, and rebucket orders for run_dates
+  2026-10-18..21.'

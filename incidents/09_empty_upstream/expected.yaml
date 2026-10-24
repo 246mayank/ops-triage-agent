@@ -1,0 +1,14 @@
+incident: 09_empty_upstream
+split: dev
+status: diagnosed
+category: empty_upstream
+required_evidence:
+- id: rows_zero
+  match: rows=0
+- id: header_only
+  match: header only
+- id: read_zero
+  match: rows_read=0
+min_evidence_hits: 1
+fix_hint: Fail the job (or hold the load) when the vendor file has 0 rows, and ask the vendor
+  to re-deliver 2026-10-21.

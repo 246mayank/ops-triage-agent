@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0112",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "freshness",
+  "message": "order_sync has no successful run since 2026-10-20T02:02:25Z (freshness SLA 26h)"
+}

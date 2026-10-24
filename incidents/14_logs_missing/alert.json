@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0114",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "job_failed",
+  "message": "Job order_sync for run_date 2026-10-21 finished in status FAILED"
+}

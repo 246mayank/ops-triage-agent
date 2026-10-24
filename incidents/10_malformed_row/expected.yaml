@@ -1,0 +1,14 @@
+incident: 10_malformed_row
+split: test
+status: diagnosed
+category: parse_error
+required_evidence:
+- id: offset
+  match: '184233'
+- id: quarantine
+  match: quarantined
+- id: cause
+  match: unescaped quote
+min_evidence_hits: 2
+fix_hint: Fix or skip the malformed row (line 1712) and reload; quarantine bad rows rather
+  than the whole file.

@@ -1,0 +1,14 @@
+incident: 12_bad_config_deploy
+split: test
+status: diagnosed
+category: config_change
+required_evidence:
+- id: bad_cron
+  match: 0 2 * 2 *
+- id: deploy_time
+  match: '2026-10-20T15:30:00Z'
+- id: next_run
+  match: '2027-02-01'
+min_evidence_hits: 2
+fix_hint: Revert schedule to '0 2 * * *', validate cron expressions in CI, and backfill 2026-10-20
+  and 2026-10-21.

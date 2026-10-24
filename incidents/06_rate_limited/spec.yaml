@@ -1,0 +1,4 @@
+incident: 06_rate_limited
+fault: rate_limited
+seed: 106
+split: dev

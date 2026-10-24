@@ -1,0 +1,13 @@
+{"ts": "2026-10-13T02:01:25Z", "level": "INFO", "service": "validator", "job_id": "os-20261012", "msg": "validated orders_2026-10-12.csv rows=2985 rejected=0"}
+{"ts": "2026-10-14T02:01:19Z", "level": "WARN", "service": "validator", "job_id": "os-20261013", "msg": "rejected row line 76 in orders_2026-10-13.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-14T02:01:20Z", "level": "INFO", "service": "validator", "job_id": "os-20261013", "msg": "validated orders_2026-10-13.csv rows=2922 rejected=1"}
+{"ts": "2026-10-15T02:01:26Z", "level": "WARN", "service": "validator", "job_id": "os-20261014", "msg": "rejected row line 2455 in orders_2026-10-14.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-15T02:01:27Z", "level": "INFO", "service": "validator", "job_id": "os-20261014", "msg": "validated orders_2026-10-14.csv rows=3083 rejected=1"}
+{"ts": "2026-10-16T02:01:06Z", "level": "WARN", "service": "validator", "job_id": "os-20261015", "msg": "rejected row line 378 in orders_2026-10-15.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-16T02:01:06Z", "level": "WARN", "service": "validator", "job_id": "os-20261015", "msg": "rejected row line 1398 in orders_2026-10-15.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-16T02:01:07Z", "level": "INFO", "service": "validator", "job_id": "os-20261015", "msg": "validated orders_2026-10-15.csv rows=2934 rejected=2"}
+{"ts": "2026-10-17T02:01:16Z", "level": "INFO", "service": "validator", "job_id": "os-20261016", "msg": "validated orders_2026-10-16.csv rows=2949 rejected=0"}
+{"ts": "2026-10-18T02:01:04Z", "level": "WARN", "service": "validator", "job_id": "os-20261017", "msg": "rejected row line 211 in orders_2026-10-17.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-18T02:01:05Z", "level": "INFO", "service": "validator", "job_id": "os-20261017", "msg": "validated orders_2026-10-17.csv rows=2128 rejected=1"}
+{"ts": "2026-10-19T02:01:02Z", "level": "WARN", "service": "validator", "job_id": "os-20261018", "msg": "rejected row line 768 in orders_2026-10-18.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-19T02:01:03Z", "level": "INFO", "service": "validator", "job_id": "os-20261018", "msg": "validated orders_2026-10-18.csv rows=2107 rejected=1"}

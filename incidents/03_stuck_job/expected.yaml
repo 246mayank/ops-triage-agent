@@ -1,0 +1,12 @@
+incident: 03_stuck_job
+split: dev
+status: diagnosed
+category: stuck_job
+required_evidence:
+- id: stuck_status
+  match: DOWNLOADED
+- id: retry_policy
+  match: retryable_states
+min_evidence_hits: 2
+fix_hint: Re-run os-20261018 manually; add stale non-terminal states (DOWNLOADED/VALIDATED
+  older than N hours) to the retry sweep or alert on them.

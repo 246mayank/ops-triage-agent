@@ -1,0 +1,57 @@
+{"ts": "2026-10-16T02:01:34Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "load started file=orders_2026-10-15.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-16T02:01:35Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "deduped 4 rows on order_id"}
+{"ts": "2026-10-16T02:01:38Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "batch 1/6 inserted rows=500"}
+{"ts": "2026-10-16T02:01:44Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "batch 2/6 inserted rows=500"}
+{"ts": "2026-10-16T02:01:51Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "batch 3/6 inserted rows=500"}
+{"ts": "2026-10-16T02:01:55Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "batch 4/6 inserted rows=500"}
+{"ts": "2026-10-16T02:02:02Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "batch 5/6 inserted rows=500"}
+{"ts": "2026-10-16T02:02:06Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "batch 6/6 inserted rows=428"}
+{"ts": "2026-10-16T02:02:10Z", "level": "INFO", "service": "loader", "job_id": "os-20261015", "msg": "load complete file=orders_2026-10-15.csv rows_loaded=2928"}
+{"ts": "2026-10-17T02:01:32Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "load started file=orders_2026-10-16.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-17T02:01:33Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "deduped 10 rows on order_id"}
+{"ts": "2026-10-17T02:01:37Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "batch 1/6 inserted rows=500"}
+{"ts": "2026-10-17T02:01:46Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "batch 2/6 inserted rows=500"}
+{"ts": "2026-10-17T02:01:54Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "batch 3/6 inserted rows=500"}
+{"ts": "2026-10-17T02:01:58Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "batch 4/6 inserted rows=500"}
+{"ts": "2026-10-17T02:02:07Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "batch 5/6 inserted rows=500"}
+{"ts": "2026-10-17T02:02:12Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "batch 6/6 inserted rows=479"}
+{"ts": "2026-10-17T02:02:16Z", "level": "INFO", "service": "loader", "job_id": "os-20261016", "msg": "load complete file=orders_2026-10-16.csv rows_loaded=2979"}
+{"ts": "2026-10-18T02:01:17Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "load started file=orders_2026-10-17.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-18T02:01:18Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "deduped 2 rows on order_id"}
+{"ts": "2026-10-18T02:01:26Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "batch 1/5 inserted rows=500"}
+{"ts": "2026-10-18T02:01:31Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "batch 2/5 inserted rows=500"}
+{"ts": "2026-10-18T02:01:36Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "batch 3/5 inserted rows=500"}
+{"ts": "2026-10-18T02:01:41Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "batch 4/5 inserted rows=500"}
+{"ts": "2026-10-18T02:01:46Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "batch 5/5 inserted rows=142"}
+{"ts": "2026-10-18T02:01:50Z", "level": "INFO", "service": "loader", "job_id": "os-20261017", "msg": "load complete file=orders_2026-10-17.csv rows_loaded=2142"}
+{"ts": "2026-10-19T02:01:14Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "load started file=orders_2026-10-18.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-19T02:01:15Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "deduped 5 rows on order_id"}
+{"ts": "2026-10-19T02:01:19Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "batch 1/5 inserted rows=500"}
+{"ts": "2026-10-19T02:01:25Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "batch 2/5 inserted rows=500"}
+{"ts": "2026-10-19T02:01:30Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "batch 3/5 inserted rows=500"}
+{"ts": "2026-10-19T02:01:35Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "batch 4/5 inserted rows=500"}
+{"ts": "2026-10-19T02:01:42Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "batch 5/5 inserted rows=72"}
+{"ts": "2026-10-19T02:01:46Z", "level": "INFO", "service": "loader", "job_id": "os-20261018", "msg": "load complete file=orders_2026-10-18.csv rows_loaded=2072"}
+{"ts": "2026-10-20T02:01:37Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "load started file=orders_2026-10-19.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-20T02:01:38Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "deduped 4 rows on order_id"}
+{"ts": "2026-10-20T02:01:41Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "batch 1/6 inserted rows=500"}
+{"ts": "2026-10-20T02:01:47Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "batch 2/6 inserted rows=500"}
+{"ts": "2026-10-20T02:01:52Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "batch 3/6 inserted rows=500"}
+{"ts": "2026-10-20T02:02:00Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "batch 4/6 inserted rows=500"}
+{"ts": "2026-10-20T02:02:09Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "batch 5/6 inserted rows=500"}
+{"ts": "2026-10-20T02:02:18Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "batch 6/6 inserted rows=395"}
+{"ts": "2026-10-20T02:02:20Z", "level": "WARN", "service": "loader", "job_id": "os-20261019", "msg": "slow query: 2.3s merging staging into orders (threshold 2.0s)"}
+{"ts": "2026-10-20T02:02:22Z", "level": "INFO", "service": "loader", "job_id": "os-20261019", "msg": "load complete file=orders_2026-10-19.csv rows_loaded=2895"}
+{"ts": "2026-10-21T02:01:35Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "load started file=orders_2026-10-20.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-21T02:01:36Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "deduped 7 rows on order_id"}
+{"ts": "2026-10-21T02:01:44Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 1/7 inserted rows=500"}
+{"ts": "2026-10-21T02:01:52Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 2/7 inserted rows=500"}
+{"ts": "2026-10-21T02:01:59Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 3/7 inserted rows=500"}
+{"ts": "2026-10-21T02:02:03Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 4/7 inserted rows=500"}
+{"ts": "2026-10-21T02:02:07Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 5/7 inserted rows=500"}
+{"ts": "2026-10-21T02:02:14Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 6/7 inserted rows=500"}
+{"ts": "2026-10-21T02:02:22Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "batch 7/7 inserted rows=34"}
+{"ts": "2026-10-21T02:02:26Z", "level": "INFO", "service": "loader", "job_id": "os-20261020", "msg": "load complete file=orders_2026-10-20.csv rows_loaded=3034"}
+{"ts": "2026-10-22T02:00:35Z", "level": "INFO", "service": "loader", "job_id": "os-20261021", "msg": "load started file=orders_2026-10-21.csv batch_size=500 bucket_timezone=local resolved to UTC on host etl-01"}
+{"ts": "2026-10-22T02:00:36Z", "level": "INFO", "service": "loader", "job_id": "os-20261021", "msg": "deduped 0 rows on order_id"}
+{"ts": "2026-10-22T02:00:39Z", "level": "INFO", "service": "loader", "job_id": "os-20261021", "msg": "load complete file=orders_2026-10-21.csv rows_loaded=0"}

@@ -1,0 +1,14 @@
+incident: 06_rate_limited
+split: dev
+status: diagnosed
+category: rate_limited
+required_evidence:
+- id: http_429
+  match: '429'
+- id: gave_up
+  match: max retries exceeded
+- id: page
+  match: page=7
+min_evidence_hits: 2
+fix_hint: Honour Retry-After and widen backoff (Retry-After is 120s, backoff caps at 32s);
+  re-run 2026-10-21.

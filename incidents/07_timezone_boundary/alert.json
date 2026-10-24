@@ -1,0 +1,6 @@
+{
+  "alert_id": "alr-20261022-0107",
+  "raised_at": "2026-10-22T06:00:00Z",
+  "rule": "date_consistency",
+  "message": "Data quality check: 508 orders with run_date 2026-10-20 have an order_ts outside 2026-10-20 (UTC)"
+}

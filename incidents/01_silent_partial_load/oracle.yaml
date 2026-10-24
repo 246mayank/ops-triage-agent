@@ -1,0 +1,9 @@
+calls:
+- tool: reconcile_counts
+  args:
+    run_date: '2026-10-21'
+- tool: search_logs
+  args:
+    service: loader
+    job_id: os-20261021
+    level: WARN

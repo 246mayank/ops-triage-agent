@@ -1,0 +1,17 @@
+{"ts": "2026-10-16T02:01:20Z", "level": "WARN", "service": "validator", "job_id": "os-20261015", "msg": "rejected row line 1314 in orders_2026-10-15.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-16T02:01:20Z", "level": "WARN", "service": "validator", "job_id": "os-20261015", "msg": "rejected row line 391 in orders_2026-10-15.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-16T02:01:20Z", "level": "WARN", "service": "validator", "job_id": "os-20261015", "msg": "rejected row line 2454 in orders_2026-10-15.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-16T02:01:21Z", "level": "INFO", "service": "validator", "job_id": "os-20261015", "msg": "validated orders_2026-10-15.csv rows=3108 rejected=3"}
+{"ts": "2026-10-17T02:01:11Z", "level": "INFO", "service": "validator", "job_id": "os-20261016", "msg": "validated orders_2026-10-16.csv rows=2950 rejected=0"}
+{"ts": "2026-10-18T02:01:03Z", "level": "WARN", "service": "validator", "job_id": "os-20261017", "msg": "rejected row line 1572 in orders_2026-10-17.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-18T02:01:04Z", "level": "INFO", "service": "validator", "job_id": "os-20261017", "msg": "validated orders_2026-10-17.csv rows=2163 rejected=1"}
+{"ts": "2026-10-19T02:01:00Z", "level": "INFO", "service": "validator", "job_id": "os-20261018", "msg": "validated orders_2026-10-18.csv rows=2150 rejected=0"}
+{"ts": "2026-10-20T02:01:08Z", "level": "WARN", "service": "validator", "job_id": "os-20261019", "msg": "rejected row line 831 in orders_2026-10-19.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-20T02:01:08Z", "level": "WARN", "service": "validator", "job_id": "os-20261019", "msg": "rejected row line 1252 in orders_2026-10-19.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-20T02:01:09Z", "level": "INFO", "service": "validator", "job_id": "os-20261019", "msg": "validated orders_2026-10-19.csv rows=2921 rejected=2"}
+{"ts": "2026-10-21T02:01:24Z", "level": "WARN", "service": "validator", "job_id": "os-20261020", "msg": "rejected row line 2377 in orders_2026-10-20.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-21T02:01:24Z", "level": "WARN", "service": "validator", "job_id": "os-20261020", "msg": "rejected row line 1298 in orders_2026-10-20.csv: invalid currency 'XXX'"}
+{"ts": "2026-10-21T02:01:25Z", "level": "INFO", "service": "validator", "job_id": "os-20261020", "msg": "validated orders_2026-10-20.csv rows=2981 rejected=2"}
+{"ts": "2026-10-21T02:01:25Z", "level": "INFO", "service": "validator", "job_id": "os-20261020", "msg": "header of orders_2026-10-20.csv differs from contract: +order_amount -amount (schema_check=lenient, continuing)"}
+{"ts": "2026-10-22T02:01:27Z", "level": "INFO", "service": "validator", "job_id": "os-20261021", "msg": "validated orders_2026-10-21.csv rows=3013 rejected=0"}
+{"ts": "2026-10-22T02:01:27Z", "level": "INFO", "service": "validator", "job_id": "os-20261021", "msg": "header of orders_2026-10-21.csv differs from contract: +order_amount -amount (schema_check=lenient, continuing)"}

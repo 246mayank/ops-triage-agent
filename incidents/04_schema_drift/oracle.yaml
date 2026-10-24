@@ -1,0 +1,6 @@
+calls:
+- tool: search_logs
+  args:
+    service: loader
+    pattern: column
+    level: WARN
