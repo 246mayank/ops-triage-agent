@@ -1,0 +1,43 @@
+{
+ "3e7ca736d5779bff562d8d6d": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "The order_sync job for run_date 2026-10-21 failed as indicated by the alert rule job_failed.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check job history and logs for order_sync on 2026-10-21."
+     },
+     "id": "call_1288126",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T6lT-l2mm7EMCkNyruLbm0j2RrBX6arzi6yRJn03kSNKPy9V_TFoJ5nfASOeYb61CR3_7P8NRBQhiNFMva9776TweENEhgdsg6T3v-8qBbDtf82tTtCvUNug="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "The order_sync job for run_date 2026-10-21 failed as indicated by the alert rule job_failed.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check job history and logs for order_sync on 2026-10-21."
+    },
+    "id": "call_1288126",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1385,
+   "latency_ms": 1800,
+   "output_tokens": 110
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "54b354fa8d10c62c59577e88": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "Job order_sync for run_date 2026-10-21 failed as indicated by the alert.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Inspect job logs and history for run_date 2026-10-21."
+     },
+     "id": "call_1152868",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T2D1X5z37foLCiiD6EtbGvEeK1TAFcqK3rq1ZXzBGintZktrJikaRmqBaEyQabx76iWtoH0YT5WHKAmlVN6VRa7rCtz-rpESXn50G9GNnh76RwM2abqM17i4="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "Job order_sync for run_date 2026-10-21 failed as indicated by the alert.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Inspect job logs and history for run_date 2026-10-21."
+    },
+    "id": "call_1152868",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1385,
+   "latency_ms": 1326,
+   "output_tokens": 95
+  }
+ }
+}

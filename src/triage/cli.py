@@ -8,6 +8,8 @@ from pathlib import Path
 
 import typer
 
+from triage.agent import DEFAULT_PROMPT
+
 app = typer.Typer(add_completion=False, no_args_is_help=True,
                   help="ops-triage-agent: diagnose data-pipeline alerts with grounded evidence")
 
@@ -29,7 +31,7 @@ def build_incidents(check: bool = typer.Option(False, help="Fail if anything wou
 @app.command()
 def run(incident: Path, post: bool = typer.Option(False, help="Post the diagnosis to chat"),
         model: str = typer.Option(None, help="Gemini model name"),
-        prompt: str = typer.Option("v1", help="Prompt version"),
+        prompt: str = typer.Option(DEFAULT_PROMPT, help="Prompt version"),
         cassette: Path = typer.Option(None, help="Record to / replay from this cassette")):
     """Investigate one incident and print the diagnosis."""
     from triage.agent import run_incident
@@ -71,7 +73,7 @@ def eval_cmd(split: str = typer.Option("dev", help="dev, test or all"),
              runs: int = typer.Option(1),
              systems: str = typer.Option("agent,b0,b1"),
              model: str = typer.Option(None),
-             prompt: str = typer.Option("v1"),
+             prompt: str = typer.Option(DEFAULT_PROMPT),
              replay: bool = typer.Option(False, help="Cassettes only; never call the model"),
              incidents: str = typer.Option(None, help="Comma-separated incident names"),
              sleep: float = typer.Option(0.0, help="Seconds to wait after live calls")):

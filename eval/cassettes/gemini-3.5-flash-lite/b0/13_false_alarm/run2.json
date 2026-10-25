@@ -1,0 +1,47 @@
+{
+ "d5485e2703b59ed7dd5c7102": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "empty_upstream",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect upstream vendor files and downloader logs for 2026-10-18"
+      ],
+      "root_cause": "Order volume dropped 26% below the 7-day average for 2026-10-18.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check upstream vendor file delivery for 2026-10-18."
+     },
+     "id": "call_951052",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TceNiB3ekfLKjoKNYnZaHWLaqAaWMTr2uf9JRKkuaxdo8FoIaUnd7eaPYWO9w2utUaVVP_0qjlp2PUyn1A5vpB5h77O9Tr181NeGZ2m3okkbAjeDfK3A4iOA="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "empty_upstream",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect upstream vendor files and downloader logs for 2026-10-18"
+     ],
+     "root_cause": "Order volume dropped 26% below the 7-day average for 2026-10-18.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check upstream vendor file delivery for 2026-10-18."
+    },
+    "id": "call_951052",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1393,
+   "latency_ms": 1540,
+   "output_tokens": 122
+  }
+ }
+}

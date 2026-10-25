@@ -1,0 +1,201 @@
+{
+ "21a8d18d2adca03c08275ae4": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "auth_failure",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+        "tool_call_id": "c10",
+        "why": "Shows the vendor token expired on 2026-10-20"
+       },
+       {
+        "quote": "2026-10-20T02:00:05Z WARN downloader [os-20261019] GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=1 -> 401 Unauthorized (WWW-Authenticate: Bearer error=\"invalid_token\")",
+        "tool_call_id": "c13",
+        "why": "Shows the downloader receiving 401 unauthorized errors due to the expired token"
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order_sync pipeline jobs failed with HTTP 401 Unauthorized errors because the vendor authentication token expired on 2026-10-20, halting data ingestion and causing the freshness alert.",
+      "status": "diagnosed",
+      "suggested_fix": "Renew the vendor API token and update the configuration (or token store) with the new valid token."
+     },
+     "id": "call_1520657",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TTsZ4gtkVixNhoVQhJKViXiv8rU_n18oAj1_xS527sevds3s5_QaPED3WPBd260aKIdmcJJaF-jqVtSlv0lyQ3u5p1McK5iBj4fCiSL-T6ZP61OTOu8vdLMo="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "auth_failure",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+       "tool_call_id": "c10",
+       "why": "Shows the vendor token expired on 2026-10-20"
+      },
+      {
+       "quote": "2026-10-20T02:00:05Z WARN downloader [os-20261019] GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=1 -> 401 Unauthorized (WWW-Authenticate: Bearer error=\"invalid_token\")",
+       "tool_call_id": "c13",
+       "why": "Shows the downloader receiving 401 unauthorized errors due to the expired token"
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order_sync pipeline jobs failed with HTTP 401 Unauthorized errors because the vendor authentication token expired on 2026-10-20, halting data ingestion and causing the freshness alert.",
+     "status": "diagnosed",
+     "suggested_fix": "Renew the vendor API token and update the configuration (or token store) with the new valid token."
+    },
+    "id": "call_1520657",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 7341,
+   "latency_ms": 8681,
+   "output_tokens": 307
+  }
+ },
+ "d30d4e6162ba8f648a3bb699": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "auth_failure",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261019 | 2026-10-19 | FAILED | 1 | 2026-10-20T02:00:00Z | 2026-10-20T02:00:06Z | HTTP 401 Unauthorized from vendor",
+        "tool_call_id": "c7",
+        "why": "Shows the job failure starting with HTTP 401 Unauthorized from vendor"
+       },
+       {
+        "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+        "tool_call_id": "c10",
+        "why": "Shows the vendor token expired on 2026-10-20"
+       },
+       {
+        "quote": "2026-10-20T02:00:05Z WARN downloader [os-20261019] GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=1 -> 401 Unauthorized (WWW-Authenticate: Bearer error=\"invalid_token\")",
+        "tool_call_id": "c13",
+        "why": "Confirms the exact auth failure when calling the vendor API due to invalid/expired token"
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order sync jobs failed starting on 2026-10-20 because the vendor API token expired on 2026-10-20T00:00:00Z, causing HTTP 401 Unauthorized errors that prevented downloading fresh data and tripped the freshness SLA alert.",
+      "status": "diagnosed",
+      "suggested_fix": "Refresh or update the vendor API token in pipeline configuration."
+     },
+     "id": "call_1493288",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T-qZrRhhpe9EFfqMcbIsePXOUsUaM1qFK_vdfVJNPZkbrxtWN8kyofjCqQjZIAkB-lN2RZvFQ9fQ8Dql4G_W-BjMWaUBOPAeUVV2kru6gw9vhN_Bl6bm-gug="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "auth_failure",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261019 | 2026-10-19 | FAILED | 1 | 2026-10-20T02:00:00Z | 2026-10-20T02:00:06Z | HTTP 401 Unauthorized from vendor",
+       "tool_call_id": "c7",
+       "why": "Shows the job failure starting with HTTP 401 Unauthorized from vendor"
+      },
+      {
+       "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+       "tool_call_id": "c10",
+       "why": "Shows the vendor token expired on 2026-10-20"
+      },
+      {
+       "quote": "2026-10-20T02:00:05Z WARN downloader [os-20261019] GET https://vendor.example.com/api/v2/orders?date=2026-10-19&page=1 -> 401 Unauthorized (WWW-Authenticate: Bearer error=\"invalid_token\")",
+       "tool_call_id": "c13",
+       "why": "Confirms the exact auth failure when calling the vendor API due to invalid/expired token"
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order sync jobs failed starting on 2026-10-20 because the vendor API token expired on 2026-10-20T00:00:00Z, causing HTTP 401 Unauthorized errors that prevented downloading fresh data and tripped the freshness SLA alert.",
+     "status": "diagnosed",
+     "suggested_fix": "Refresh or update the vendor API token in pipeline configuration."
+    },
+    "id": "call_1493288",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 7529,
+   "latency_ms": 6325,
+   "output_tokens": 440
+  }
+ },
+ "f20d54d9151039688d1560a9": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "auth_failure",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+        "tool_call_id": "c10",
+        "why": "Shows the vendor API token expiration date configured in pipeline.yaml"
+       },
+       {
+        "quote": "2026-10-20T02:00:06Z ERROR downloader [os-20261019] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+        "tool_call_id": "c13",
+        "why": "Shows jobs failing due to HTTP 401 Unauthorized because the token expired"
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order_sync pipeline jobs failed starting from 2026-10-20 because the vendor API token expired on 2026-10-20T00:00:00Z, causing HTTP 401 Unauthorized errors that are not automatically retried.",
+      "status": "diagnosed",
+      "suggested_fix": "Refresh/renew the vendor API token in pipeline.yaml or the credential store and re-run the failed jobs."
+     },
+     "id": "call_1157791",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TXnQgpuIbPqDdWH4Wg0LOsU7MoOB8coJParMUbXwzW1kiZKhRTzfK5A2J6FlP0KCc7HSLK8NHBIQML6Wh-JnFQY2OaSSSB--eaJWmek0AxiouGoOSY3XqddY="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "auth_failure",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+       "tool_call_id": "c10",
+       "why": "Shows the vendor API token expiration date configured in pipeline.yaml"
+      },
+      {
+       "quote": "2026-10-20T02:00:06Z ERROR downloader [os-20261019] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+       "tool_call_id": "c13",
+       "why": "Shows jobs failing due to HTTP 401 Unauthorized because the token expired"
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order_sync pipeline jobs failed starting from 2026-10-20 because the vendor API token expired on 2026-10-20T00:00:00Z, causing HTTP 401 Unauthorized errors that are not automatically retried.",
+     "status": "diagnosed",
+     "suggested_fix": "Refresh/renew the vendor API token in pipeline.yaml or the credential store and re-run the failed jobs."
+    },
+    "id": "call_1157791",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 7645,
+   "latency_ms": 2660,
+   "output_tokens": 292
+  }
+ }
+}

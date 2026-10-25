@@ -43,9 +43,9 @@ def test_category_missing_when_diagnosed():
     assert any("category is required" in e for e in errs)
 
 
-def test_category_must_be_empty_when_abstaining():
-    _, errs, _ = validate(diag(status="insufficient_evidence", evidence=[]), RESULTS)
-    assert any("category must be empty" in e for e in errs)
+def test_category_is_dropped_when_abstaining():
+    d, errs, _ = validate(diag(status="insufficient_evidence", evidence=[]), RESULTS)
+    assert errs == [] and d.category is None
 
 
 def test_no_fault_needs_evidence():

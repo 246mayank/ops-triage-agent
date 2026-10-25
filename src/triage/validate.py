@@ -21,6 +21,9 @@ def validate(args: dict, results: dict[str, str]) -> tuple[Diagnosis | None, lis
     results maps tool-call id -> the exact text the model saw for that result.
     Returns (diagnosis or None, errors, number of ungrounded quotes).
     """
+    if args.get("status") in ("no_fault", "insufficient_evidence") and args.get("category"):
+        # A category here is meaningless, not ungrounded (models often echo the status): drop it.
+        args = {**args, "category": None}
     try:
         diag = Diagnosis.model_validate(args)
     except ValidationError as e:
@@ -31,8 +34,6 @@ def validate(args: dict, results: dict[str, str]) -> tuple[Diagnosis | None, lis
     errors: list[str] = []
     if diag.status == "diagnosed" and diag.category is None:
         errors.append("category is required when status is diagnosed")
-    if diag.status != "diagnosed" and diag.category is not None:
-        errors.append(f"category must be empty when status is {diag.status}")
     if diag.status == "diagnosed" and not diag.evidence:
         errors.append("status diagnosed needs at least one evidence item")
     if diag.status == "no_fault" and not diag.evidence:
@@ -51,8 +52,9 @@ def validate(args: dict, results: dict[str, str]) -> tuple[Diagnosis | None, lis
             errors.append(f"evidence {i}: quote is empty")
             ungrounded += 1
         elif q not in normalise(src):
-            errors.append(f"evidence {i}: quote not found in {ev.tool_call_id}; copy the text "
-                          "exactly from that result")
+            errors.append(f"evidence {i}: quote not found in {ev.tool_call_id}; copy one "
+                          "contiguous span exactly from that result (for a table, one row "
+                          "without the header)")
             ungrounded += 1
     return diag, errors, ungrounded
 

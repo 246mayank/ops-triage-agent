@@ -1,0 +1,65 @@
+{
+ "c1c82e7e72209a84a964db9e": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "rate_limited",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+        "tool_call_id": "c7",
+        "why": "Shows the job failed with max retries exceeded due to 429 Too Many Requests."
+       },
+       {
+        "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+        "tool_call_id": "c13",
+        "why": "Downloader logs show rate limiting (429) hitting page 7 repeatedly until retries were exhausted."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The vendor API throttled requests (HTTP 429 Too Many Requests) while downloading page 7 for run_date 2026-10-21, causing the downloader to exhaust all configured retries and fail the job.",
+      "status": "diagnosed",
+      "suggested_fix": "Increase max_retries or backoff_seconds in pipeline.yaml, or coordinate with the vendor to raise rate limits for the API endpoint."
+     },
+     "id": "call_1000849",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TPdsYGuEb_QzKs5KkyvteE7PJQBUQQGpvzxqndTAZ6LX4JJV-li3DB2Sj1MJpNgINuA-mgwSYxxHFLI6xk1LI8-XiVCisT6zepFvucAew2IRsb7RwnVoVhXU="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "rate_limited",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+       "tool_call_id": "c7",
+       "why": "Shows the job failed with max retries exceeded due to 429 Too Many Requests."
+      },
+      {
+       "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+       "tool_call_id": "c13",
+       "why": "Downloader logs show rate limiting (429) hitting page 7 repeatedly until retries were exhausted."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The vendor API throttled requests (HTTP 429 Too Many Requests) while downloading page 7 for run_date 2026-10-21, causing the downloader to exhaust all configured retries and fail the job.",
+     "status": "diagnosed",
+     "suggested_fix": "Increase max_retries or backoff_seconds in pipeline.yaml, or coordinate with the vendor to raise rate limits for the API endpoint."
+    },
+    "id": "call_1000849",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10157,
+   "latency_ms": 2048,
+   "output_tokens": 377
+  }
+ }
+}

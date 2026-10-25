@@ -1,0 +1,191 @@
+{
+ "2488e568e40178ca31c7a0eb": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "concurrency_race",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+        "tool_call_id": "c15",
+        "why": "Worker 1 encountered a unique constraint violation on order_id."
+       },
+       {
+        "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+        "tool_call_id": "c15",
+        "why": "Worker 2 encountered the exact same unique constraint violation simultaneously, indicating a concurrency race between multiple workers attempting to insert/merge overlapping records."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "Multiple concurrent workers attempted to load overlapping records within the same batch for job os-20261021, causing a unique constraint violation on orders.order_id.",
+      "status": "diagnosed",
+      "suggested_fix": "Configure single-worker execution or coordinate batch ranges properly across workers to prevent concurrent insertions of the same order_id."
+     },
+     "id": "call_1565707",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0Td7NYYsrJv9ZEf21wRmx0OlHo3fygIG4ULvagElqMIt_ZwjXeVJGNvT1BG3QJprafPtxTejHnWFdAavl2j_Zmoqn5j8W849wfyYd7fScd1CWXVytw2SoIloA="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "concurrency_race",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+       "tool_call_id": "c15",
+       "why": "Worker 1 encountered a unique constraint violation on order_id."
+      },
+      {
+       "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+       "tool_call_id": "c15",
+       "why": "Worker 2 encountered the exact same unique constraint violation simultaneously, indicating a concurrency race between multiple workers attempting to insert/merge overlapping records."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "Multiple concurrent workers attempted to load overlapping records within the same batch for job os-20261021, causing a unique constraint violation on orders.order_id.",
+     "status": "diagnosed",
+     "suggested_fix": "Configure single-worker execution or coordinate batch ranges properly across workers to prevent concurrent insertions of the same order_id."
+    },
+    "id": "call_1565707",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10368,
+   "latency_ms": 4342,
+   "output_tokens": 347
+  }
+ },
+ "5c1550e8da619df63b084cc7": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "concurrency_race",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:55Z | IntegrityError: UNIQUE constraint failed: orders.order_id",
+        "tool_call_id": "c7",
+        "why": "Job order_sync failed with unique constraint violation for run date 2026-10-21."
+       },
+       {
+        "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+        "tool_call_id": "c15",
+        "why": "Two concurrent loader workers attempted to insert the same batch/record simultaneously."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "A concurrency race occurred when two workers (loader-w1 and loader-w2) attempted to insert overlapping records or batches for job os-20261021 simultaneously, causing a UNIQUE constraint failure on orders.order_id and failing the job.",
+      "status": "diagnosed",
+      "suggested_fix": "Ensure loader workers coordinate batch assignments or run single-threaded for a given job run to prevent duplicate insert attempts on the same primary key."
+     },
+     "id": "call_940867",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T64Hn3wXgzrWr4azExjJQeMysCu9lrilcmxcNBVsKKloCdvzQPRlGR9nJuk8kYM4UTBR-rNxqBc5CI-X7uwmdR4n6tClrlRF7pGSodZb2VSjfBbpvWpmjoS0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "concurrency_race",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:55Z | IntegrityError: UNIQUE constraint failed: orders.order_id",
+       "tool_call_id": "c7",
+       "why": "Job order_sync failed with unique constraint violation for run date 2026-10-21."
+      },
+      {
+       "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+       "tool_call_id": "c15",
+       "why": "Two concurrent loader workers attempted to insert the same batch/record simultaneously."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "A concurrency race occurred when two workers (loader-w1 and loader-w2) attempted to insert overlapping records or batches for job os-20261021 simultaneously, causing a UNIQUE constraint failure on orders.order_id and failing the job.",
+     "status": "diagnosed",
+     "suggested_fix": "Ensure loader workers coordinate batch assignments or run single-threaded for a given job run to prevent duplicate insert attempts on the same primary key."
+    },
+    "id": "call_940867",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10556,
+   "latency_ms": 4745,
+   "output_tokens": 377
+  }
+ },
+ "f0619c8e432d60cf19b12fbc": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "concurrency_race",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+        "tool_call_id": "c15",
+        "why": "Two workers tried to insert the same order_id concurrently, triggering a UNIQUE constraint failure."
+       },
+       {
+        "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+        "tool_call_id": "c15",
+        "why": "Worker 2 also failed on the same UNIQUE constraint violation, aborting the load job."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The loader job failed with an IntegrityError (UNIQUE constraint failed: orders.order_id) because multiple workers attempted to insert duplicate or overlapping record batches concurrently without proper coordination or batch partitioning.",
+      "status": "diagnosed",
+      "suggested_fix": "Ensure worker batch ranges are mutually exclusive or implement proper upsert/idempotency handling in the loader."
+     },
+     "id": "call_695948",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TNCVnei0e70gKxeKgL7f5er75umTHnVDu4ECk2re1qxbpFnqMWgI3KgGpILIkfJvaOgVtWNq4Q1kQ17Jd0QhDOdXyu0meaSxLwD8lbemUFCBghWtYcc5-taE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "concurrency_race",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+       "tool_call_id": "c15",
+       "why": "Two workers tried to insert the same order_id concurrently, triggering a UNIQUE constraint failure."
+      },
+      {
+       "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+       "tool_call_id": "c15",
+       "why": "Worker 2 also failed on the same UNIQUE constraint violation, aborting the load job."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The loader job failed with an IntegrityError (UNIQUE constraint failed: orders.order_id) because multiple workers attempted to insert duplicate or overlapping record batches concurrently without proper coordination or batch partitioning.",
+     "status": "diagnosed",
+     "suggested_fix": "Ensure worker batch ranges are mutually exclusive or implement proper upsert/idempotency handling in the loader."
+    },
+    "id": "call_695948",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10672,
+   "latency_ms": 2630,
+   "output_tokens": 342
+  }
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "36ede89443e0ccca796263ad": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "The order sync job has stopped running or updating since 2026-10-19, causing a freshness alert due to stale data.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check scheduler status and restart the order_sync job if stuck."
+     },
+     "id": "call_854121",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TDMvl-Vy4MVHRwLtco9fS1iYKGp4vXP3o7mybk77uKAz8YSiNFIjG9WYWrd3f5gsi_ZZEdoGOaTOMol66OF8WMu8AHSr9bFuarPeN_QQog5N0PPRSvRXZXt0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "The order sync job has stopped running or updating since 2026-10-19, causing a freshness alert due to stale data.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check scheduler status and restart the order_sync job if stuck."
+    },
+    "id": "call_854121",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1397,
+   "latency_ms": 1856,
+   "output_tokens": 101
+  }
+ },
+ "b8c995ca72d5fe17a1b71a5a": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "The alert indicates that the orders freshness check failed because the latest loaded_at timestamp is 2026-10-19T02:01:50Z, which is more than 26 hours old relative to the alert time of 2026-10-22T06:00:00Z.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Investigate the scheduler and pipeline job history for the order_sync job between 2026-10-19 and 2026-10-22."
+     },
+     "id": "call_969064",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T0StUw6PsMIWRUnmNxhRRtnB4ajUhfOTe76_j-GLqRiSY9WnqVIOxkBl-4fE7KVFcFpkfoxa2Gs0ufwVC7_gHPCF3nT03_HMbCzFNf2WgaByHAf7Y-cW7sE0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "The alert indicates that the orders freshness check failed because the latest loaded_at timestamp is 2026-10-19T02:01:50Z, which is more than 26 hours old relative to the alert time of 2026-10-22T06:00:00Z.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Investigate the scheduler and pipeline job history for the order_sync job between 2026-10-19 and 2026-10-22."
+    },
+    "id": "call_969064",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1093,
+   "latency_ms": 4470,
+   "output_tokens": 163
+  }
+ },
+ "baf7d08245c7778fe2fc4d37": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "The order-sync pipeline has stopped loading fresh data since 2026-10-19, causing a freshness alert.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check the job scheduler status and logs for the order_sync job."
+     },
+     "id": "call_796298",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TC-h1tLOG6ReDRgq6pronGV1LA8dHiklatHbsdeTQWyi8T2lU5U4WG_4h6Q-i0eHkFdShZiDWRHLi8Q_RvcSRc98fcHwLfCb_-A7Kwj2Rw0ItlNY6EWkEFFQ="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "The order-sync pipeline has stopped loading fresh data since 2026-10-19, causing a freshness alert.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check the job scheduler status and logs for the order_sync job."
+    },
+    "id": "call_796298",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1281,
+   "latency_ms": 7065,
+   "output_tokens": 99
+  }
+ }
+}

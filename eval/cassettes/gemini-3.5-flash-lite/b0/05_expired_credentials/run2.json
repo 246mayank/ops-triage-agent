@@ -1,0 +1,47 @@
+{
+ "4387e9608579146e005892ab": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect the downloader and scheduler logs for recent runs."
+      ],
+      "root_cause": "No tools are available to investigate; submitting placeholder diagnosis as instructed.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check upstream availability and scheduler status."
+     },
+     "id": "call_1372888",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0ThCfRWxokT_X5kLRdBXKktjNSW-VByT89p5_YAH9Xkfo50J9NxhyWaKfjYuZvVyusflMuWeBN2hlDoWOwUVldAyA3WBEbzXtjkGmW93m2S6iDto17m0TxFrg="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect the downloader and scheduler logs for recent runs."
+     ],
+     "root_cause": "No tools are available to investigate; submitting placeholder diagnosis as instructed.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check upstream availability and scheduler status."
+    },
+    "id": "call_1372888",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1397,
+   "latency_ms": 1498,
+   "output_tokens": 88
+  }
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "b08f6e0a5ca6ea70568bc9f0": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+        "tool_call_id": "c7",
+        "why": "Job os-20261018 for run_date 2026-10-18 stopped at status DOWNLOADED and never finished loading."
+       },
+       {
+        "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+        "tool_call_id": "c9",
+        "why": "Alert states that run_date 2026-10-18 has 0 rows in the orders table."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The sync job for run_date 2026-10-18 (os-20261018) is stuck in the DOWNLOADED state and never progressed to validate and load its data into the orders table, leaving 0 rows for that date.",
+      "status": "diagnosed",
+      "suggested_fix": "Investigate why the scheduler or downstream worker stopped after the DOWNLOADED phase for job os-20261018, and manually trigger or retry the job to load the data."
+     },
+     "id": "call_912434",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0ToZ5_lDQJwcd8vAvMVXvlmiQy38aStQY_paY5Za_IUr6EHmi0qYmD-hotLv6XilIoozFB8qgwhZFQftFqc8M-H4gUlb6FUWk1NVvtzcDljeadUBedYRc-rjM="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+       "tool_call_id": "c7",
+       "why": "Job os-20261018 for run_date 2026-10-18 stopped at status DOWNLOADED and never finished loading."
+      },
+      {
+       "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+       "tool_call_id": "c9",
+       "why": "Alert states that run_date 2026-10-18 has 0 rows in the orders table."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The sync job for run_date 2026-10-18 (os-20261018) is stuck in the DOWNLOADED state and never progressed to validate and load its data into the orders table, leaving 0 rows for that date.",
+     "status": "diagnosed",
+     "suggested_fix": "Investigate why the scheduler or downstream worker stopped after the DOWNLOADED phase for job os-20261018, and manually trigger or retry the job to load the data."
+    },
+    "id": "call_912434",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10496,
+   "latency_ms": 17137,
+   "output_tokens": 344
+  }
+ },
+ "cf55de765ac475dd8753a39a": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+        "tool_call_id": "c7",
+        "why": "The job run os-20261018 for run_date 2026-10-18 is stuck in the DOWNLOADED state with a NULL finished_at timestamp, meaning the downstream validator and loader never processed it."
+       },
+       {
+        "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+        "tool_call_id": "c9",
+        "why": "Alert confirms that run_date 2026-10-18 has 0 rows in the orders table due to the stuck job."
+       }
+      ],
+      "next_checks": [
+       "Check if there are any resource locks or hung worker threads for job os-20261018"
+      ],
+      "root_cause": "Job os-20261018 for run_date 2026-10-18 started downloading on 2026-10-19 but remained stuck in the DOWNLOADED state without finishing or progressing to validation and loading, resulting in zero rows in the orders table.",
+      "status": "diagnosed",
+      "suggested_fix": "Investigate why the worker did not advance job os-20261018 past the DOWNLOADED state, and manually retry or resume the job."
+     },
+     "id": "call_995596",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TPw-yTSYGxyYblS21048fpGQg7u2tgE1AJeCvoWfgNNFFEKiHaGNTfC7_rFhAu-yGY0Yb6W2G8OJTX_79y7eCUKBKSmVNcH0VZdgJLnr789EX_8B8xY9YUlE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+       "tool_call_id": "c7",
+       "why": "The job run os-20261018 for run_date 2026-10-18 is stuck in the DOWNLOADED state with a NULL finished_at timestamp, meaning the downstream validator and loader never processed it."
+      },
+      {
+       "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+       "tool_call_id": "c9",
+       "why": "Alert confirms that run_date 2026-10-18 has 0 rows in the orders table due to the stuck job."
+      }
+     ],
+     "next_checks": [
+      "Check if there are any resource locks or hung worker threads for job os-20261018"
+     ],
+     "root_cause": "Job os-20261018 for run_date 2026-10-18 started downloading on 2026-10-19 but remained stuck in the DOWNLOADED state without finishing or progressing to validation and loading, resulting in zero rows in the orders table.",
+     "status": "diagnosed",
+     "suggested_fix": "Investigate why the worker did not advance job os-20261018 past the DOWNLOADED state, and manually retry or resume the job."
+    },
+    "id": "call_995596",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10308,
+   "latency_ms": 6791,
+   "output_tokens": 392
+  }
+ },
+ "d1fc9f03a7a88f59c2b636b3": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+        "tool_call_id": "c7",
+        "why": "Job os-20261018 is stuck in DOWNLOADED status with no finished_at time or error, meaning subsequent pipeline steps (validator/loader) never ran for run_date 2026-10-18."
+       },
+       {
+        "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+        "tool_call_id": "c9",
+        "why": "The alert triggered because 0 rows were loaded for run_date 2026-10-18 due to the job being stuck in DOWNLOADED."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order_sync job for run_date 2026-10-18 (os-20261018) is stuck in the DOWNLOADED state and never progressed to validator and loader steps, leaving 0 rows in the orders table for that date.",
+      "status": "diagnosed",
+      "suggested_fix": "Inspect scheduler and worker processes for job os-20261018, and either retry the failed/stuck job or manually resume it from the download stage."
+     },
+     "id": "call_1157046",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TQVZh7O5nL-tRpRevX9_hmSmAbZFG_8oqT7NdUnx7L1gCqZ9RqFHHAvHNiF42YpZzxdXZOHCY1myf54P03-YyKtPmOmSiaMlIgsENb5dXRCbcWrA2V1VIcVE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+       "tool_call_id": "c7",
+       "why": "Job os-20261018 is stuck in DOWNLOADED status with no finished_at time or error, meaning subsequent pipeline steps (validator/loader) never ran for run_date 2026-10-18."
+      },
+      {
+       "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+       "tool_call_id": "c9",
+       "why": "The alert triggered because 0 rows were loaded for run_date 2026-10-18 due to the job being stuck in DOWNLOADED."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order_sync job for run_date 2026-10-18 (os-20261018) is stuck in the DOWNLOADED state and never progressed to validator and loader steps, leaving 0 rows in the orders table for that date.",
+     "status": "diagnosed",
+     "suggested_fix": "Inspect scheduler and worker processes for job os-20261018, and either retry the failed/stuck job or manually resume it from the download stage."
+    },
+    "id": "call_1157046",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10612,
+   "latency_ms": 2265,
+   "output_tokens": 367
+  }
+ }
+}

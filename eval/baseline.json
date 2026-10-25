@@ -1,0 +1,8 @@
+{
+  "agent_strict": 7,
+  "split": "dev",
+  "model": "gemini-3.5-flash-lite",
+  "prompt": "v5",
+  "source": "eval/results/2026-10-25_dev_gemini-3.5-flash-lite_v5_6916ce0.json",
+  "note": "Mean strict-correct per run over 2 dev runs (14/20). The gate fails below 6."
+}

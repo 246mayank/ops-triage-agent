@@ -23,7 +23,7 @@ from triage.tools.registry import Registry, default_registry
 from triage.trace import Trace, git_commit
 from triage.validate import downgrade, validate
 
-DEFAULT_PROMPT = "v1"
+DEFAULT_PROMPT = "v5"  # frozen 2026-10-25, see eval/CHANGELOG.md
 
 
 @dataclass

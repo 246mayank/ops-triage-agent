@@ -1,0 +1,191 @@
+{
+ "95970b842a5850e6ff591c8e": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "rate_limited",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+        "tool_call_id": "c7",
+        "why": "Shows the job failed with max retries exceeded due to 429 Too Many Requests."
+       },
+       {
+        "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+        "tool_call_id": "c13",
+        "why": "Downloader logs show the exact HTTP 429 rate limit error and exhausting retries."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The upstream vendor API returned HTTP 429 Too Many Requests while downloading page 7 of the orders file for run_date 2026-10-21, causing the job to exceed its maximum retries and fail.",
+      "status": "diagnosed",
+      "suggested_fix": "Implement respectful backoff respecting Retry-After headers or contact the vendor to raise rate limits."
+     },
+     "id": "call_822507",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TRm9EWeU7-I2KnzSa5I7-iNZ5GG1R03359x006AxmTdmy1eENkOf2Ao70AiUX8XBUk3rb0KvfOegE9lC4Poeh7Yu4tA-0mdlFf0ps8lVLAAHVwdVpFK4dSjA="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "rate_limited",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+       "tool_call_id": "c7",
+       "why": "Shows the job failed with max retries exceeded due to 429 Too Many Requests."
+      },
+      {
+       "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+       "tool_call_id": "c13",
+       "why": "Downloader logs show the exact HTTP 429 rate limit error and exhausting retries."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The upstream vendor API returned HTTP 429 Too Many Requests while downloading page 7 of the orders file for run_date 2026-10-21, causing the job to exceed its maximum retries and fail.",
+     "status": "diagnosed",
+     "suggested_fix": "Implement respectful backoff respecting Retry-After headers or contact the vendor to raise rate limits."
+    },
+    "id": "call_822507",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10041,
+   "latency_ms": 3301,
+   "output_tokens": 362
+  }
+ },
+ "aa5390522f799c0772776208": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "rate_limited",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+        "tool_call_id": "c7",
+        "why": "Job history shows the run failed due to max retries exceeded on 429 Too Many Requests."
+       },
+       {
+        "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+        "tool_call_id": "c13",
+        "why": "Downloader logs show explicit HTTP 429 rate limiting errors from the upstream vendor API during pagination."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order_sync job for run_date 2026-10-21 failed because the upstream vendor API throttled requests (HTTP 429 Too Many Requests) while downloading page 7, and the downloader's retry attempts were exhausted.",
+      "status": "diagnosed",
+      "suggested_fix": "Increase backoff time or handle HTTP 429 Retry-After headers appropriately in the downloader, then retry the failed job."
+     },
+     "id": "call_964420",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0Tz97glRQoeZTFxJgt2LI0v5G676L29nqMrCO2aTmOAgmzq7qWTM6fiudq1kuMlnDCIf-ULT2_LzipgbFCValp1N98lE215ABj1TDNBfmD1JJhF_j_0K5vwsU="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "rate_limited",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+       "tool_call_id": "c7",
+       "why": "Job history shows the run failed due to max retries exceeded on 429 Too Many Requests."
+      },
+      {
+       "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+       "tool_call_id": "c13",
+       "why": "Downloader logs show explicit HTTP 429 rate limiting errors from the upstream vendor API during pagination."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order_sync job for run_date 2026-10-21 failed because the upstream vendor API throttled requests (HTTP 429 Too Many Requests) while downloading page 7, and the downloader's retry attempts were exhausted.",
+     "status": "diagnosed",
+     "suggested_fix": "Increase backoff time or handle HTTP 429 Retry-After headers appropriately in the downloader, then retry the failed job."
+    },
+    "id": "call_964420",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 9853,
+   "latency_ms": 16363,
+   "output_tokens": 379
+  }
+ },
+ "d444eebe7f9f93ef3f711faa": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "rate_limited",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+        "tool_call_id": "c7",
+        "why": "Job history shows the run failed due to max retries exceeded on 429 Too Many Requests."
+       },
+       {
+        "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+        "tool_call_id": "c13",
+        "why": "Downloader logs show page 7 repeatedly hitting HTTP 429 until retries were exhausted."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order_sync job for run_date 2026-10-21 failed because the upstream vendor API throttled requests with HTTP 429 (Too Many Requests) on page 7, and the downloader exhausted all configured retry attempts.",
+      "status": "diagnosed",
+      "suggested_fix": "Wait for the rate limit window or upstream relief, then retry the failed job or increase backoff/retry limits if appropriate."
+     },
+     "id": "call_2013261",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T44s8HT-h_6p2z9jT8nN5wU9nwRBgNbLmEdLhLLn1Zmilt4sCmJalEO32iya_olm-FeRkP3L4cTStGMaUNTDL4c41uB4qos9u_OEkTkKM7vSrGrCU83cQun0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "rate_limited",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+       "tool_call_id": "c7",
+       "why": "Job history shows the run failed due to max retries exceeded on 429 Too Many Requests."
+      },
+      {
+       "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+       "tool_call_id": "c13",
+       "why": "Downloader logs show page 7 repeatedly hitting HTTP 429 until retries were exhausted."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order_sync job for run_date 2026-10-21 failed because the upstream vendor API throttled requests with HTTP 429 (Too Many Requests) on page 7, and the downloader exhausted all configured retry attempts.",
+     "status": "diagnosed",
+     "suggested_fix": "Wait for the rate limit window or upstream relief, then retry the failed job or increase backoff/retry limits if appropriate."
+    },
+    "id": "call_2013261",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10157,
+   "latency_ms": 2302,
+   "output_tokens": 376
+  }
+ }
+}

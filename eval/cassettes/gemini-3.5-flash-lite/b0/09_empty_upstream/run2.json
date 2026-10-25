@@ -1,0 +1,47 @@
+{
+ "b3c2e9a6dc458e42f3127f04": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "empty_upstream",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect vendor files and downloader logs for 2026-10-21"
+      ],
+      "root_cause": "The order volume for 2026-10-21 dropped 100% due to an empty or missing upstream file, but no investigation tools are available.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check upstream vendor availability and re-run downloader for 2026-10-21."
+     },
+     "id": "call_805237",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T9H8Wnm_IhC8w7smYEj-ONQ5j5X0D81menDih4q-IPcl5Ye3AGf9WnIp8W8mgwSArVzjxgC8l4PpHvLotavJbOx08ZXVHjMkw2m2QTBK80io2kq5U0VEY2kE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "empty_upstream",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect vendor files and downloader logs for 2026-10-21"
+     ],
+     "root_cause": "The order volume for 2026-10-21 dropped 100% due to an empty or missing upstream file, but no investigation tools are available.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check upstream vendor availability and re-run downloader for 2026-10-21."
+    },
+    "id": "call_805237",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1394,
+   "latency_ms": 1648,
+   "output_tokens": 135
+  }
+ }
+}

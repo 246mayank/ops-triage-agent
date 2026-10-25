@@ -1,0 +1,135 @@
+{
+ "1a5958a496a42c798bd9f86b": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Check job history, logs, and upstream file availability for order_sync on 2026-10-21."
+      ],
+      "root_cause": "An alert was raised for a 100% drop in order volume for 2026-10-21, but no investigation tools are available to inspect the pipeline state.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Inspect the downloader and validator logs for the order_sync job on 2026-10-21."
+     },
+     "id": "call_435981",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TcYoZkSeRT0w9Qnfkmb8y7aip7IA-cNuK_h9qkbc0xUxe9-4YqwS5oaQcCS8kzzjHAxCOB3QBhMAX_tNr5VFnVc-K6VCZur9dBt9wxya8qGDmduEfsiJzCi0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Check job history, logs, and upstream file availability for order_sync on 2026-10-21."
+     ],
+     "root_cause": "An alert was raised for a 100% drop in order volume for 2026-10-21, but no investigation tools are available to inspect the pipeline state.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Inspect the downloader and validator logs for the order_sync job on 2026-10-21."
+    },
+    "id": "call_435981",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1278,
+   "latency_ms": 4968,
+   "output_tokens": 142
+  }
+ },
+ "590904de46edf05c93e5681c": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect order_sync job logs and downloader records for 2026-10-21"
+      ],
+      "root_cause": "The order_sync job for 2026-10-21 failed to ingest any orders, resulting in 100% volume drop compared to the 7-day average.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check pipeline execution logs and retry the order sync for 2026-10-21 if upstream data is available."
+     },
+     "id": "call_1246694",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TfBRFk1ygWmuZkxcQq9uwKPSDFOS6GCqqaXkwYw7n7mBAMsDX6iKU3XCJg66CwU7jzyn2AEkdgFlhPj1KJBieREsat2ltExm1MbjKQOYvGF34zMTL2sMNAHk="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect order_sync job logs and downloader records for 2026-10-21"
+     ],
+     "root_cause": "The order_sync job for 2026-10-21 failed to ingest any orders, resulting in 100% volume drop compared to the 7-day average.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check pipeline execution logs and retry the order sync for 2026-10-21 if upstream data is available."
+    },
+    "id": "call_1246694",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1394,
+   "latency_ms": 3337,
+   "output_tokens": 147
+  }
+ },
+ "89f0053f7a2d1c3eff8e6d64": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect order_sync job history for 2026-10-21",
+       "Check validator logs for 2026-10-21"
+      ],
+      "root_cause": "Insufficient data available from tools to determine root cause.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Run investigation tools to inspect job history and logs."
+     },
+     "id": "call_1024460",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TdxlFQGiQY150a5lOEKAS_qtRYrwJukAZXSsOPe5Vh869V7KgPoBZSjueKNQG5gk-1QHX7rTMDzuMH18EZJFnK0aIn5j1cIwyDMH02gbLyFKDHZV6eoMjrAE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect order_sync job history for 2026-10-21",
+      "Check validator logs for 2026-10-21"
+     ],
+     "root_cause": "Insufficient data available from tools to determine root cause.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Run investigation tools to inspect job history and logs."
+    },
+    "id": "call_1024460",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1090,
+   "latency_ms": 5752,
+   "output_tokens": 106
+  }
+ }
+}

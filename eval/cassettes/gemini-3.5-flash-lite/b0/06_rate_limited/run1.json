@@ -1,0 +1,129 @@
+{
+ "37d2df060024da32a866a917": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "The order_sync job for run_date 2026-10-21 failed as indicated by the alert.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Inspect job logs and history for run_date 2026-10-21."
+     },
+     "id": "call_1275660",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0Th1h6znKDoLhn4szmAY1obIHWKQ8f2r3XZNtw8fydQSRzE5vhYN6YU2E9b6b6Y_D4sMf00NEhHsuFzcyDEEWvUYRoQWrFwXydEKF3zJAa61AyJjBueadibnQ="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "The order_sync job for run_date 2026-10-21 failed as indicated by the alert.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Inspect job logs and history for run_date 2026-10-21."
+    },
+    "id": "call_1275660",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1081,
+   "latency_ms": 5226,
+   "output_tokens": 96
+  }
+ },
+ "8753d6b17d61b22d2fb98509": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect job logs and history when tools are available."
+      ],
+      "root_cause": "The alert states that the order_sync job for run_date 2026-10-21 failed, but without investigation tools, the exact root cause cannot be established.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Inspect downstream system logs and job execution history."
+     },
+     "id": "call_1002052",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TNBTaq4AjAA4o0Dw5bQmsZzkvPSW4iILd303U5fi9n44zl4X5to1tmk6KcLCYqjnYXo1Wwq0g9hniLzN_FrjXoLUi4I_q8ifnyaLr3JCKMlU8wXHd4K7wIp0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect job logs and history when tools are available."
+     ],
+     "root_cause": "The alert states that the order_sync job for run_date 2026-10-21 failed, but without investigation tools, the exact root cause cannot be established.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Inspect downstream system logs and job execution history."
+    },
+    "id": "call_1002052",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1269,
+   "latency_ms": 4942,
+   "output_tokens": 116
+  }
+ },
+ "88b18f53240e3245952d30d6": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [
+       "None"
+      ],
+      "root_cause": "The job failed as reported by the alert.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check the job logs and error message for details on why the job failed."
+     },
+     "id": "call_1003202",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TN0PcP1PMKwGmVCiUs3EQvxzvzTj5Kl1BEfrwLQKf0yevm8vw4HUNK2xqZK8RRxbMXKCEAPHVSoQ00A4J4w9Lvb7tWRRnSX-zH7hVMgjan_NXw-c_C00ImQg="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [
+      "None"
+     ],
+     "root_cause": "The job failed as reported by the alert.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check the job logs and error message for details on why the job failed."
+    },
+    "id": "call_1003202",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1385,
+   "latency_ms": 2739,
+   "output_tokens": 75
+  }
+ }
+}

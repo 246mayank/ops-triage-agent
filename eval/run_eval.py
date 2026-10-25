@@ -12,11 +12,11 @@ from pathlib import Path
 
 from eval.baselines import run_baseline
 from eval.score import Expected, score
-from triage.agent import Budget, run_incident
+from triage.agent import DEFAULT_PROMPT, Budget, run_incident
 from triage.llm.replay import RecordingClient, ReplayClient
 from triage.schema import Alert
 from triage.trace import git_commit
-from triage.validate import validate
+from triage.validate import downgrade, validate
 
 ROOT = Path(__file__).resolve().parent.parent
 INCIDENTS = ROOT / "incidents"
@@ -77,10 +77,13 @@ def run_one(system: str, inc: Path, k: int, model: str, prompt_version: str, rep
         turn, results, _ = run_baseline(system, alert, inc, llm, prompt_version)
         call = next((c for c in turn.tool_calls if c.name == "submit_diagnosis"), None)
         diag, errs, ungrounded = validate(call.args, results) if call else (None, ["no call"], 0)
-        cost = {"turns": 1, "tool_calls": 0, "input_tokens": turn.usage.input_tokens,
+        caught = ungrounded
+        if errs:  # same rule as the agent's final submission: invalid -> downgraded
+            diag, ungrounded = downgrade(diag, errs), 0
+        cost ={"turns": 1, "tool_calls": 0, "input_tokens": turn.usage.input_tokens,
                 "output_tokens": turn.usage.output_tokens,
                 "seconds": round(turn.usage.latency_ms / 1000, 2)}
-        rec.update(end_reason="submitted" if diag else "invalid", quotes_caught=ungrounded,
+        rec.update(end_reason="validation_failed" if errs else "submitted", quotes_caught=caught,
                    repairs=0, validation_errors=errs)
     # cost["seconds"] is model latency + tool time from the recorded turns, so replays report
     # the same timing as the live run (rate-limit waits are excluded).
@@ -180,7 +183,7 @@ def render_markdown(report: dict) -> str:
 
 
 def run_eval(split: str = "dev", systems: tuple[str, ...] = ("agent", "b0", "b1"),
-             runs: int = 1, model: str | None = None, prompt_version: str = "v1",
+             runs: int = 1, model: str | None = None, prompt_version: str = DEFAULT_PROMPT,
              replay: bool = False, out_dir: Path = RESULTS, cassettes: Path = CASSETTES,
              sleep: float = 0.0, budget: Budget | None = None,
              incidents: list[str] | None = None, write: bool = True) -> dict:

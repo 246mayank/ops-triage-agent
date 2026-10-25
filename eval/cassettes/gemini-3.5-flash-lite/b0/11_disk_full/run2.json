@@ -1,0 +1,47 @@
+{
+ "9e38ce5826941e37dd4c37b1": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "empty_upstream",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Check vendor files and downloader logs for 2026-10-21"
+      ],
+      "root_cause": "Order volume dropped 45% due to an empty or partial upstream vendor file.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Verify upstream vendor file delivery and re-run downloader if incomplete."
+     },
+     "id": "call_1106389",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TY5ncMpRpK8uVR56ujjHDpFx2NRuqnTsMdRfZZqvtGuOJkwyv755zvFnKFI1mmwNKyzkZm8M35XLp8EdL7KxjvBSgam-ob6OrvhEdaYk4hviERaMbt_FYeTA="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "empty_upstream",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Check vendor files and downloader logs for 2026-10-21"
+     ],
+     "root_cause": "Order volume dropped 45% due to an empty or partial upstream vendor file.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Verify upstream vendor file delivery and re-run downloader if incomplete."
+    },
+    "id": "call_1106389",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1393,
+   "latency_ms": 3802,
+   "output_tokens": 106
+  }
+ }
+}

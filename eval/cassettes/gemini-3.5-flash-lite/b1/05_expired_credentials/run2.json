@@ -1,0 +1,65 @@
+{
+ "8005db21e1cd38751321c518": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "auth_failure",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+        "tool_call_id": "c10",
+        "why": "Config shows the vendor API token expired on 2026-10-20"
+       },
+       {
+        "quote": "2026-10-20T02:00:06Z ERROR downloader [os-20261019] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+        "tool_call_id": "c13",
+        "why": "Jobs started failing with HTTP 401 Unauthorized because the token expired"
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The vendor API authentication token expired on 2026-10-20, causing subsequent order_sync job runs to fail with HTTP 401 Unauthorized errors and leaving the orders data stale.",
+      "status": "diagnosed",
+      "suggested_fix": "Renew the vendor API token in pipeline.yaml or the secrets manager so jobs can authenticate successfully."
+     },
+     "id": "call_2070283",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TZPoiJ3p9k-IXaBihqskk-1jiY6P6M1t29AST8Uk1P4nvhXWFx0SD3jx6HO_ZUUI3CHZpNX9hx748VOPuf3U4ZgbLq38Htq8gh7I28wMWY60c3-mnZ_48XIQ="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "auth_failure",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+       "tool_call_id": "c10",
+       "why": "Config shows the vendor API token expired on 2026-10-20"
+      },
+      {
+       "quote": "2026-10-20T02:00:06Z ERROR downloader [os-20261019] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+       "tool_call_id": "c13",
+       "why": "Jobs started failing with HTTP 401 Unauthorized because the token expired"
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The vendor API authentication token expired on 2026-10-20, causing subsequent order_sync job runs to fail with HTTP 401 Unauthorized errors and leaving the orders data stale.",
+     "status": "diagnosed",
+     "suggested_fix": "Renew the vendor API token in pipeline.yaml or the secrets manager so jobs can authenticate successfully."
+    },
+    "id": "call_2070283",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 7645,
+   "latency_ms": 2656,
+   "output_tokens": 273
+  }
+ }
+}

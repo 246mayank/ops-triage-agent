@@ -122,7 +122,10 @@ SUBMIT_SPEC = {
                     "type": "object",
                     "properties": {
                         "tool_call_id": {"type": "string"},
-                        "quote": {"type": "string"},
+                        "quote": {"type": "string",
+                                  "description": ("One line or short span copied verbatim, max "
+                                                  "200 characters. For a table, quote one row "
+                                                  "without the header line.")},
                         "why": {"type": "string"},
                     },
                     "required": ["tool_call_id", "quote", "why"],

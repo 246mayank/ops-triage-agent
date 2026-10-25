@@ -1,0 +1,2808 @@
+{
+ "meta": {
+  "eval_id": "2026-10-25_dev_gemini-3.5-flash-lite_v5_6916ce0",
+  "split": "dev",
+  "runs": 2,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "commit": "6916ce0",
+  "created": "2026-10-25T07-09-39Z",
+  "replay": true,
+  "systems": [
+   "agent",
+   "b0",
+   "b1"
+  ]
+ },
+ "summary": {
+  "agent": {
+   "incidents": 10,
+   "runs": 2,
+   "attempts": 20,
+   "strict_mean": 7,
+   "strict_per_run": [
+    7,
+    7
+   ],
+   "strict_attempts": 14,
+   "category_mean": 9.5,
+   "pass_k": 5,
+   "quotes_caught": 1,
+   "ungrounded_final": 0,
+   "validation_failed": 0,
+   "abstention_correct": "2/2",
+   "false_abstentions": 1,
+   "injection": "n/a",
+   "median_tool_calls": 6.0,
+   "median_turns": 6.0,
+   "total_tokens": 493713,
+   "p50_seconds": 13.39,
+   "p95_seconds": 70.88
+  },
+  "b0": {
+   "incidents": 10,
+   "runs": 2,
+   "attempts": 20,
+   "strict_mean": 0,
+   "strict_per_run": [
+    0,
+    0
+   ],
+   "strict_attempts": 0,
+   "category_mean": 0,
+   "pass_k": 0,
+   "quotes_caught": 0,
+   "ungrounded_final": 0,
+   "validation_failed": 1,
+   "abstention_correct": "0/2",
+   "false_abstentions": 18,
+   "injection": "n/a",
+   "median_tool_calls": 0.0,
+   "median_turns": 1.0,
+   "total_tokens": 30043,
+   "p50_seconds": 1.8,
+   "p95_seconds": 3.58
+  },
+  "b1": {
+   "incidents": 10,
+   "runs": 2,
+   "attempts": 20,
+   "strict_mean": 4.5,
+   "strict_per_run": [
+    5,
+    4
+   ],
+   "strict_attempts": 9,
+   "category_mean": 6.5,
+   "pass_k": 4,
+   "quotes_caught": 4,
+   "ungrounded_final": 0,
+   "validation_failed": 4,
+   "abstention_correct": "0/2",
+   "false_abstentions": 4,
+   "injection": "n/a",
+   "median_tool_calls": 0.0,
+   "median_turns": 1.0,
+   "total_tokens": 208930,
+   "p50_seconds": 2.41,
+   "p95_seconds": 4.1
+  }
+ },
+ "records": [
+  {
+   "incident": "01_silent_partial_load",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "silent_data_loss",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "01_silent_partial_load-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "rows_read",
+     "rows_loaded",
+     "suppressed_error"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 6,
+     "tool_calls": 7,
+     "input_tokens": 21904,
+     "output_tokens": 594,
+     "seconds": 18.39
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "silent_data_loss",
+    "root_cause": "Rows disappeared inside the loader during job os-20261021 because batches encountered E_INSERT_SUPPRESSED errors, and with on_insert_error set to ignore, the loader silently dropped the rows rather than failing the job.",
+    "evidence": [
+     {
+      "tool_call_id": "t3",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=3200 rows_loaded=1690 rows_rejected=2 rows_deduped=8 gap=1500 orders_in_table=1690",
+      "why": "reconcile_counts shows 1500 rows disappeared inside the loader with a nonzero gap."
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "2026-10-22T02:02:15Z WARN loader [os-20261021] batch 5/7 delete-then-insert: insert returned E_INSERT_SUPPRESSED; on_insert_error=ignore, continuing",
+      "why": "Loader logs show batches encountering E_INSERT_SUPPRESSED and continuing because on_insert_error is set to ignore."
+     }
+    ],
+    "suggested_fix": "Investigate why E_INSERT_SUPPRESSED occurred during insert/delete-then-insert operations and consider changing on_insert_error to fail the job rather than ignoring insert errors.",
+    "confidence": "high",
+    "next_checks": [
+     "Check database table constraints or triggers that might cause insert suppression."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "01_silent_partial_load",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "silent_data_loss",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 141,
+     "seconds": 1.86
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Order volume for 2026-10-21 dropped significantly below the 7-day average, triggering the volume_drop alert, but no investigation tools are available to verify pipeline execution details.",
+    "evidence": [],
+    "suggested_fix": "Investigate the downloader and validator logs for the 2026-10-21 run date.",
+    "confidence": "low",
+    "next_checks": [
+     "Check job history and vendor files to confirm if upstream delivered fewer orders or empty file."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "01_silent_partial_load",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "silent_data_loss",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "rows_read",
+     "rows_loaded",
+     "suppressed_error"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10675,
+     "output_tokens": 369,
+     "seconds": 2.43
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "silent_data_loss",
+    "root_cause": "Order volume dropped because several batches during the load phase encountered insert errors (E_INSERT_SUPPRESSED), which were ignored due to the on_insert_error=ignore config setting, resulting in rows being read from the upstream file but omitted from the destination table without failing the job.",
+    "evidence": [
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-21.csv | 2026-10-21 | 3200 | 1690 | 2 | 8 | sha1:fd4c5ce346e61eb8",
+      "why": "Ingest manifest shows 3200 rows read but only 1690 loaded for 2026-10-21."
+     },
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:02:03Z WARN loader [os-20261021] batch 3/7 delete-then-insert: insert returned E_INSERT_SUPPRESSED; on_insert_error=ignore, continuing",
+      "why": "Loader logs show inserts being suppressed with on_insert_error=ignore, causing silent data drop during loading."
+     }
+    ],
+    "suggested_fix": "Investigate why insert suppression occurred in batches 3 through 5, and adjust on_insert_error policy or fix the underlying insertion constraint issues instead of ignoring errors.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "01_silent_partial_load",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "silent_data_loss",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "01_silent_partial_load-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "rows_read",
+     "rows_loaded",
+     "suppressed_error"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 5,
+     "tool_calls": 6,
+     "input_tokens": 18221,
+     "output_tokens": 505,
+     "seconds": 14.85
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "silent_data_loss",
+    "root_cause": "Rows were lost inside the loader due to insert suppression (E_INSERT_SUPPRESSED) with on_insert_error set to ignore, causing a 1500-row gap and triggering the volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "t3",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=3200 rows_loaded=1690 rows_rejected=2 rows_deduped=8 gap=1500 orders_in_table=1690",
+      "why": "reconcile_counts shows a gap of 1500 rows that disappeared inside the loader."
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "WARN loader [os-20261021] batch 3/7 delete-then-insert: insert returned E_INSERT_SUPPRESSED; on_insert_error=ignore, continuing",
+      "why": "Loader logs show batches encountering E_INSERT_SUPPRESSED and ignoring errors, resulting in missing rows."
+     }
+    ],
+    "suggested_fix": "Investigate why insert suppression occurred for batches 3, 4, and 5, and adjust loader error handling or fix upstream constraints/conflicts.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "01_silent_partial_load",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "silent_data_loss",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 124,
+     "seconds": 1.41
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Order volume for 2026-10-21 dropped significantly below the 7-day average, triggering the volume_drop alert.",
+    "evidence": [],
+    "suggested_fix": "Check downloader and validator logs for missing vendor files or dropped records.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect logs and database counts for 2026-10-21 order sync."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "01_silent_partial_load",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "silent_data_loss",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": false,
+    "hits": [
+     "rows_read",
+     "rows_loaded",
+     "suppressed_error"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10675,
+     "output_tokens": 385,
+     "seconds": 1.83
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "empty_upstream",
+    "root_cause": "The order sync pipeline for 2026-10-21 read 3200 rows from the vendor file, but the loader suppressed and ignored inserts for multiple batches (returning E_INSERT_SUPPRESSED under the configured on_insert_error: ignore policy), causing 1510 rows to be dropped silently without failing the job.",
+    "evidence": [
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-21.csv | 2026-10-21 | 3200 | 1690 | 2 | 8 | sha1:fd4c5ce346e61eb8",
+      "why": "Ingest manifest shows 3200 rows read for 2026-10-21, but only 1690 loaded."
+     },
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:02:03Z WARN loader [os-20261021] batch 3/7 delete-then-insert: insert returned E_INSERT_SUPPRESSED; on_insert_error=ignore, continuing",
+      "why": "Loader suppressed inserts due to on_insert_error=ignore config policy, leading to silent data loss without job failure."
+     }
+    ],
+    "suggested_fix": "Investigate why inserts were suppressed during the load for 2026-10-21 and review the on_insert_error configuration policy.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "02_duplicate_key_race",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "concurrency_race",
+   "end_reason": "forced:max_steps",
+   "quotes_caught": 0,
+   "repairs": 1,
+   "trace": "02_duplicate_key_race-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "unique_violation"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 13,
+     "tool_calls": 11,
+     "input_tokens": 60666,
+     "output_tokens": 771,
+     "seconds": 45.04
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "concurrency_race",
+    "root_cause": "Two loader workers attempted to insert the same batch/records concurrently during the run for 2026-10-21, triggering a UNIQUE constraint violation on orders.order_id.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:55Z | IntegrityError: UNIQUE constraint failed: orders.order_id",
+      "why": "Shows the job failed with a UNIQUE constraint violation on orders.order_id."
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+      "why": "Shows multiple workers attempting to load the same batch/record concurrently causing a uniqueness conflict."
+     }
+    ],
+    "suggested_fix": "Ensure loader workers coordinate batch ranges or partition data properly to prevent duplicate concurrent inserts.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "02_duplicate_key_race",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "concurrency_race",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1385,
+     "output_tokens": 89,
+     "seconds": 1.36
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Job order_sync for run_date 2026-10-21 failed as indicated by the alert.",
+    "evidence": [],
+    "suggested_fix": "Inspect job logs and history.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "02_duplicate_key_race",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "concurrency_race",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "second_worker",
+     "unique_violation"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10672,
+     "output_tokens": 342,
+     "seconds": 2.63
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "concurrency_race",
+    "root_cause": "The loader job failed with an IntegrityError (UNIQUE constraint failed: orders.order_id) because multiple workers attempted to insert duplicate or overlapping record batches concurrently without proper coordination or batch partitioning.",
+    "evidence": [
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+      "why": "Two workers tried to insert the same order_id concurrently, triggering a UNIQUE constraint failure."
+     },
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+      "why": "Worker 2 also failed on the same UNIQUE constraint violation, aborting the load job."
+     }
+    ],
+    "suggested_fix": "Ensure worker batch ranges are mutually exclusive or implement proper upsert/idempotency handling in the loader.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "02_duplicate_key_race",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "concurrency_race",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "02_duplicate_key_race-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "unique_violation"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 6,
+     "tool_calls": 6,
+     "input_tokens": 19569,
+     "output_tokens": 634,
+     "seconds": 9.5
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "concurrency_race",
+    "root_cause": "A concurrency race occurred where two loader workers (loader-w1 and loader-w2) attempted to process and insert the same batch concurrently, resulting in a UNIQUE constraint violation on orders.order_id and failing the job run.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:55Z | IntegrityError: UNIQUE constraint failed: orders.order_id",
+      "why": "Job os-20261021 failed with a UNIQUE constraint violation on orders.order_id."
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+      "why": "Two loader workers (loader-w1 and loader-w2) attempted to load the same batch concurrently, causing a duplicate key violation."
+     }
+    ],
+    "suggested_fix": "Ensure loader worker task distribution uses proper locking or exclusive worker assignment per job run to prevent concurrent writes of the same data batch.",
+    "confidence": "high",
+    "next_checks": [
+     "Check if the scheduler spawned duplicate workers or if duplicate tasks were queued for the same run_date."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "02_duplicate_key_race",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "concurrency_race",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1385,
+     "output_tokens": 110,
+     "seconds": 1.8
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The order_sync job for run_date 2026-10-21 failed as indicated by the alert rule job_failed.",
+    "evidence": [],
+    "suggested_fix": "Check job history and logs for order_sync on 2026-10-21.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "02_duplicate_key_race",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "concurrency_race",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "second_worker",
+     "unique_violation"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10672,
+     "output_tokens": 326,
+     "seconds": 2.27
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "concurrency_race",
+    "root_cause": "Multiple loader workers processed overlapping batches concurrently during the order_sync job, leading to a UNIQUE constraint violation on orders.order_id.",
+    "evidence": [
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+      "why": "Shows multiple workers hitting a unique constraint failure on the same order_id simultaneously"
+     },
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+      "why": "Shows concurrent workers processing overlapping batches and conflicting on the primary key constraint"
+     }
+    ],
+    "suggested_fix": "Configure the loader with a single worker or implement proper partition/batch locking to prevent concurrent workers from inserting duplicate order IDs.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "03_stuck_job",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "stuck_job",
+   "end_reason": "forced:max_steps",
+   "quotes_caught": 1,
+   "repairs": 1,
+   "trace": "03_stuck_job-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "stuck_status"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 13,
+     "tool_calls": 11,
+     "input_tokens": 59133,
+     "output_tokens": 1265,
+     "seconds": 28.5
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "stuck_job",
+    "root_cause": "The order_sync job for run_date 2026-10-18 successfully completed downloading the vendor file, but became stuck in the DOWNLOADED status without triggering the validator and loader stages.",
+    "evidence": [
+     {
+      "tool_call_id": "t9",
+      "quote": "os-20261018 | order_sync | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+      "why": "Shows job os-20261018 reached DOWNLOADED status and never finished or progressed further."
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "2026-10-19T02:00:53Z INFO downloader [os-20261018] downloaded orders_2026-10-18.csv rows=2103 bytes=201946 checksum=sha1:44cd5c9da3b394a3 vendor_revision=1",
+      "why": "Downloader finished downloading the file for run_date 2026-10-18, but neither validator nor loader logs show any activity afterward."
+     }
+    ],
+    "suggested_fix": "Investigate worker process health/queuing during the run, and implement a stuck-job recovery mechanism to retry or advance jobs lingering in DOWNLOADED status.",
+    "confidence": "high",
+    "next_checks": [
+     "Check worker heartbeat and queue health for task dispatch after download completion"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "03_stuck_job",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "stuck_job",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 122,
+     "seconds": 1.7
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Weekly completeness check reports 0 rows in orders for run_date 2026-10-18.",
+    "evidence": [],
+    "suggested_fix": "Check pipeline execution logs for run_date 2026-10-18.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect database and downloader logs for 2026-10-18"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "03_stuck_job",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "stuck_job",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "stuck_status"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10612,
+     "output_tokens": 367,
+     "seconds": 2.27
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "stuck_job",
+    "root_cause": "The order_sync job for run_date 2026-10-18 (os-20261018) is stuck in the DOWNLOADED state and never progressed to validator and loader steps, leaving 0 rows in the orders table for that date.",
+    "evidence": [
+     {
+      "tool_call_id": "c7",
+      "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+      "why": "Job os-20261018 is stuck in DOWNLOADED status with no finished_at time or error, meaning subsequent pipeline steps (validator/loader) never ran for run_date 2026-10-18."
+     },
+     {
+      "tool_call_id": "c9",
+      "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+      "why": "The alert triggered because 0 rows were loaded for run_date 2026-10-18 due to the job being stuck in DOWNLOADED."
+     }
+    ],
+    "suggested_fix": "Inspect scheduler and worker processes for job os-20261018, and either retry the failed/stuck job or manually resume it from the download stage.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "03_stuck_job",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "stuck_job",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "03_stuck_job-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "stuck_status",
+     "retry_policy"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 10,
+     "tool_calls": 9,
+     "input_tokens": 42357,
+     "output_tokens": 728,
+     "seconds": 14.82
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "stuck_job",
+    "root_cause": "The order_sync job for run_date 2026-10-18 reached the DOWNLOADED state successfully but failed to progress further or terminate, leaving it stuck. Because the scheduler's retry policy only triggers on FAILED states, the stuck DOWNLOADED job was never automatically retried, resulting in 0 rows in the orders table.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+      "why": "Job status remains DOWNLOADED with no finish time and no error, meaning it stopped after downloading without proceeding to validation or loading."
+     },
+     {
+      "tool_call_id": "t8",
+      "quote": "scheduler:\n  retryable_states:\n  - FAILED\n  workers: 2",
+      "why": "The scheduler only retries jobs in FAILED state, so DOWNLOADED jobs that stop prematurely are never retried automatically."
+     }
+    ],
+    "suggested_fix": "Update scheduler retry policy to include DOWNLOADED or intermediate states, or manually fail and retry the stuck job os-20261018.",
+    "confidence": "high",
+    "next_checks": [
+     "Inspect scheduler daemon logs around 2026-10-19T02:00:54Z for worker crash or disconnection"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "03_stuck_job",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "stuck_job",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 79,
+     "seconds": 1.48
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The user prompt instructs to answer from the alert alone with one submit_diagnosis call without using any investigation tools.",
+    "evidence": [],
+    "suggested_fix": "Enable tool access to investigate the completeness alert.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "03_stuck_job",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "stuck_job",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "stuck_status"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10612,
+     "output_tokens": 314,
+     "seconds": 2.0
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "stuck_job",
+    "root_cause": "The job for run_date 2026-10-18 (os-20261018) got stuck in the DOWNLOADED state and was never processed further by validator or loader, resulting in zero rows in the orders table.",
+    "evidence": [
+     {
+      "tool_call_id": "c7",
+      "quote": "os-20261018 | 2026-10-18 | DOWNLOADED | 1 | 2026-10-19T02:00:00Z | NULL | NULL",
+      "why": "Job os-20261018 is stuck in DOWNLOADED status with no finished_at timestamp or error."
+     },
+     {
+      "tool_call_id": "c9",
+      "quote": "Weekly completeness check: run_date 2026-10-18 has 0 rows in orders (expected about 2100)",
+      "why": "Completeness check failed because run_date 2026-10-18 has no rows loaded in orders."
+     }
+    ],
+    "suggested_fix": "Retry or restart the stuck job os-20261018 from the downloader or validator stage.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "04_schema_drift",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "schema_drift",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "04_schema_drift-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "new_column",
+     "unknown_column"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 8,
+     "tool_calls": 7,
+     "input_tokens": 24228,
+     "output_tokens": 606,
+     "seconds": 10.04
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "schema_drift",
+    "root_cause": "The upstream vendor renamed the 'amount' column to 'order_amount' in orders_2026-10-21.csv. With schema_check set to lenient, the validator allowed the file through, and the loader ignored the unknown 'order_amount' column while filling the missing 'amount' column with NULL values for all rows.",
+    "evidence": [
+     {
+      "tool_call_id": "t4",
+      "quote": "header of orders_2026-10-21.csv differs from contract: +order_amount -amount (schema_check=lenient, continuing)",
+      "why": "The validator logs show the upstream column name changed from 'amount' to 'order_amount'."
+     },
+     {
+      "tool_call_id": "t7",
+      "quote": "unknown column 'order_amount' in orders_2026-10-21.csv; column ignored",
+      "why": "The loader ignored the new column because it did not match the expected schema."
+     },
+     {
+      "tool_call_id": "t7",
+      "quote": "required column 'amount' missing in orders_2026-10-21.csv; filled with NULL",
+      "why": "Because the expected 'amount' column was missing, the loader filled all amount values with NULL, resulting in a 100% null rate."
+     }
+    ],
+    "suggested_fix": "Update the table schema and pipeline configuration to recognize 'order_amount' instead of 'amount', or request the vendor to revert the column rename.",
+    "confidence": "high",
+    "next_checks": [
+     "Coordinate with upstream vendor to revert column name change or update pipeline schema definition to accept 'order_amount'."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "04_schema_drift",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "schema_drift",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 156,
+     "seconds": 1.54
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The alert indicates that the null rate of orders.amount for run_date 2026-10-21 reached 100%, but no tools are available to investigate further.",
+    "evidence": [],
+    "suggested_fix": "Investigate the downloader, validator, and loader logs for run_date 2026-10-21 to determine why amounts are null.",
+    "confidence": "low",
+    "next_checks": [
+     "Check job history, logs, and config for run_date 2026-10-21"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "04_schema_drift",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "schema_drift",
+   "end_reason": "validation_failed",
+   "quotes_caught": 2,
+   "repairs": 0,
+   "validation_errors": [
+    "evidence 1: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)",
+    "evidence 2: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)"
+   ],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10447,
+     "output_tokens": 330,
+     "seconds": 2.11
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The upstream vendor schema changed the amount column name to 'order_amount' starting on 2026-10-20, causing the loader to ignore it and fill the required 'amount' column with NULLs. [downgraded: validation_failed]",
+    "evidence": [],
+    "suggested_fix": "Update the ingestion mapping or request the upstream vendor to restore the 'amount' column name in the API payload.",
+    "confidence": "low",
+    "next_checks": [
+     "validator: evidence 1: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)",
+     "validator: evidence 2: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "04_schema_drift",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "schema_drift",
+   "end_reason": "forced:wall_clock",
+   "quotes_caught": 0,
+   "repairs": 1,
+   "trace": "04_schema_drift-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 3,
+     "tool_calls": 5,
+     "input_tokens": 7892,
+     "output_tokens": 544,
+     "seconds": 171.27
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "schema_drift",
+    "root_cause": "The upstream order file contained null or unparseable amounts for run_date 2026-10-21, causing a 100% null rate in orders.amount while the rows were accepted and loaded successfully.",
+    "evidence": [
+     {
+      "tool_call_id": "t4",
+      "quote": "alr-20261022-0104 | 2026-10-22T06:00:00Z | null_rate | Null rate of orders.amount for run_date 2026-10-21 is 100% (threshold 1%) | open | NULL",
+      "why": "Alert indicates 100% null rate on orders.amount for run_date 2026-10-21."
+     },
+     {
+      "tool_call_id": "t2",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=3013 rows_loaded=3010 rows_rejected=0 rows_deduped=3 gap=0 orders_in_table=3010",
+      "why": "File was successfully loaded without rejection, meaning rows loaded into table have null amounts due to upstream schema/format issues."
+     }
+    ],
+    "suggested_fix": "Verify upstream vendor file structure and update validation rules or coordinate with the vendor to ensure amount is populated correctly.",
+    "confidence": "medium",
+    "next_checks": [
+     "Inspect upstream source file or validator config to see if the amount column format or name changed."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "04_schema_drift",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "schema_drift",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 145,
+     "seconds": 1.8
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The null rate of orders.amount for run_date 2026-10-21 reached 100%, exceeding the 1% threshold, indicating that amount values are missing or failing to load properly.",
+    "evidence": [],
+    "suggested_fix": "Examine downloader and loader logs to verify how amount values are parsed from vendor files.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect job history and validator logs for run_date 2026-10-21"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "04_schema_drift",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "schema_drift",
+   "end_reason": "validation_failed",
+   "quotes_caught": 2,
+   "repairs": 0,
+   "validation_errors": [
+    "evidence 1: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)",
+    "evidence 2: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)"
+   ],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10447,
+     "output_tokens": 429,
+     "seconds": 2.41
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The upstream API or file schema drifted by renaming the 'amount' column to 'order_amount', causing the loader to ignore the data column and fill the table's 'amount' column entirely with NULLs. [downgraded: validation_failed]",
+    "evidence": [],
+    "suggested_fix": "Update the ingestion mapping or request the upstream vendor to restore the 'amount' column name.",
+    "confidence": "low",
+    "next_checks": [
+     "validator: evidence 1: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)",
+     "validator: evidence 2: quote not found in c15; copy one contiguous span exactly from that result (for a table, one row without the header)"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "05_expired_credentials",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "auth_failure",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "05_expired_credentials-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_401",
+     "expiry_key",
+     "expiry_time"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 4,
+     "tool_calls": 5,
+     "input_tokens": 12874,
+     "output_tokens": 516,
+     "seconds": 17.8
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "auth_failure",
+    "root_cause": "The pipeline is failing with HTTP 401 Unauthorized because the vendor API token expired on 2026-10-20T00:00:00Z, preventing the downloader from fetching new orders since 2026-10-19.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "HTTP 401 Unauthorized from vendor",
+      "why": "Job os-20261021 failed with HTTP 401 Unauthorized from vendor"
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "2026-10-22T02:00:06Z ERROR downloader [os-20261021] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+      "why": "Downloader log confirms the 401 Unauthorized error from the vendor endpoint"
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "  token_expires_at: '2026-10-20T00:00:00Z'",
+      "why": "The token expiration date is set in the past (2026-10-20), causing authentication to fail for recent runs"
+     }
+    ],
+    "suggested_fix": "Update the vendor access token / token_expires_at configuration in pipeline.yaml or renew the API credentials with the vendor.",
+    "confidence": "high",
+    "next_checks": [
+     "Check vendor credential provisioning or update token_expires_at in pipeline.yaml"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "05_expired_credentials",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "auth_failure",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1397,
+     "output_tokens": 101,
+     "seconds": 1.86
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The order sync job has stopped running or updating since 2026-10-19, causing a freshness alert due to stale data.",
+    "evidence": [],
+    "suggested_fix": "Check scheduler status and restart the order_sync job if stuck.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "05_expired_credentials",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "auth_failure",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_401",
+     "expiry_key",
+     "expiry_time"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 7645,
+     "output_tokens": 292,
+     "seconds": 2.66
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "auth_failure",
+    "root_cause": "The order_sync pipeline jobs failed starting from 2026-10-20 because the vendor API token expired on 2026-10-20T00:00:00Z, causing HTTP 401 Unauthorized errors that are not automatically retried.",
+    "evidence": [
+     {
+      "tool_call_id": "c10",
+      "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+      "why": "Shows the vendor API token expiration date configured in pipeline.yaml"
+     },
+     {
+      "tool_call_id": "c13",
+      "quote": "2026-10-20T02:00:06Z ERROR downloader [os-20261019] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+      "why": "Shows jobs failing due to HTTP 401 Unauthorized because the token expired"
+     }
+    ],
+    "suggested_fix": "Refresh/renew the vendor API token in pipeline.yaml or the credential store and re-run the failed jobs.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "05_expired_credentials",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "auth_failure",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "05_expired_credentials-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_401",
+     "expiry_key",
+     "expiry_time"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 4,
+     "tool_calls": 6,
+     "input_tokens": 13669,
+     "output_tokens": 634,
+     "seconds": 6.77
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "auth_failure",
+    "root_cause": "The vendor authentication token expired on 2026-10-20 (token_expires_at: 2026-10-20T00:00:00Z), causing all subsequent order_sync job runs (os-20261019, os-20261020, os-20261021) to fail with HTTP 401 Unauthorized errors.",
+    "evidence": [
+     {
+      "tool_call_id": "t1",
+      "quote": "orders freshness: latest loaded_at is 2026-10-19T02:01:50Z, more than 26h ago",
+      "why": "Shows the freshness alert was triggered because no data has been loaded since 2026-10-19."
+     },
+     {
+      "tool_call_id": "t2",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:00:06Z | HTTP 401 Unauthorized from vendor",
+      "why": "Job runs failed starting from 2026-10-19 due to HTTP 401 Unauthorized errors from the vendor."
+     },
+     {
+      "tool_call_id": "t5",
+      "quote": "  token_expires_at: '2026-10-20T00:00:00Z'",
+      "why": "The vendor authentication token expired on 2026-10-20, causing all subsequent API requests to return 401 Unauthorized."
+     }
+    ],
+    "suggested_fix": "Renew the vendor API token and update token_expires_at in pipeline.yaml.",
+    "confidence": "high",
+    "next_checks": [
+     "Verify if vendor token has been renewed or updated in pipeline.yaml"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "05_expired_credentials",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "auth_failure",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1397,
+     "output_tokens": 88,
+     "seconds": 1.5
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "No tools are available to investigate; submitting placeholder diagnosis as instructed.",
+    "evidence": [],
+    "suggested_fix": "Check upstream availability and scheduler status.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect the downloader and scheduler logs for recent runs."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "05_expired_credentials",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "auth_failure",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_401",
+     "expiry_key",
+     "expiry_time"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 7645,
+     "output_tokens": 273,
+     "seconds": 2.66
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "auth_failure",
+    "root_cause": "The vendor API authentication token expired on 2026-10-20, causing subsequent order_sync job runs to fail with HTTP 401 Unauthorized errors and leaving the orders data stale.",
+    "evidence": [
+     {
+      "tool_call_id": "c10",
+      "quote": "token_expires_at: '2026-10-20T00:00:00Z'",
+      "why": "Config shows the vendor API token expired on 2026-10-20"
+     },
+     {
+      "tool_call_id": "c13",
+      "quote": "2026-10-20T02:00:06Z ERROR downloader [os-20261019] download failed: HTTP 401 Unauthorized from vendor; auth errors are not retried",
+      "why": "Jobs started failing with HTTP 401 Unauthorized because the token expired"
+     }
+    ],
+    "suggested_fix": "Renew the vendor API token in pipeline.yaml or the secrets manager so jobs can authenticate successfully.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "06_rate_limited",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "rate_limited",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "06_rate_limited-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_429",
+     "gave_up",
+     "page"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 4,
+     "tool_calls": 4,
+     "input_tokens": 12568,
+     "output_tokens": 397,
+     "seconds": 5.83
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "rate_limited",
+    "root_cause": "The order_sync job for run_date 2026-10-21 failed because the vendor API returned HTTP 429 Too Many Requests while downloading page 7 of the orders file, exhausting the retry attempts.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "max retries exceeded (429 Too Many Requests)",
+      "why": "Job failed due to hitting max retries on HTTP 429 Too Many Requests"
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+      "why": "Downloader hit rate limits from the vendor API while paginating through orders"
+     }
+    ],
+    "suggested_fix": "Increase retry limits, add backoff spacing, or coordinate with the vendor to raise rate limits for the API endpoint.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "06_rate_limited",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "rate_limited",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1385,
+     "output_tokens": 75,
+     "seconds": 2.74
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The job failed as reported by the alert.",
+    "evidence": [],
+    "suggested_fix": "Check the job logs and error message for details on why the job failed.",
+    "confidence": "high",
+    "next_checks": [
+     "None"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "06_rate_limited",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "rate_limited",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_429",
+     "gave_up",
+     "page"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10157,
+     "output_tokens": 376,
+     "seconds": 2.3
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "rate_limited",
+    "root_cause": "The order_sync job for run_date 2026-10-21 failed because the upstream vendor API throttled requests with HTTP 429 (Too Many Requests) on page 7, and the downloader exhausted all configured retry attempts.",
+    "evidence": [
+     {
+      "tool_call_id": "c7",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+      "why": "Job history shows the run failed due to max retries exceeded on 429 Too Many Requests."
+     },
+     {
+      "tool_call_id": "c13",
+      "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+      "why": "Downloader logs show page 7 repeatedly hitting HTTP 429 until retries were exhausted."
+     }
+    ],
+    "suggested_fix": "Wait for the rate limit window or upstream relief, then retry the failed job or increase backoff/retry limits if appropriate.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "06_rate_limited",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "rate_limited",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "06_rate_limited-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_429",
+     "gave_up",
+     "page"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 6,
+     "tool_calls": 5,
+     "input_tokens": 19373,
+     "output_tokens": 431,
+     "seconds": 24.47
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "rate_limited",
+    "root_cause": "The upstream vendor API throttled requests with HTTP 429 Too Many Requests on page 7 while downloading orders for run_date 2026-10-21. The downloader exhausted its configured retries and failed the job.",
+    "evidence": [
+     {
+      "tool_call_id": "t3",
+      "quote": "max retries exceeded (429 Too Many Requests)",
+      "why": "Job failed due to 429 too many requests error."
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+      "why": "Downloader encountered HTTP 429 rate limit from the vendor API and exhausted retries."
+     }
+    ],
+    "suggested_fix": "Implement a backoff policy that honors the vendor's 'Retry-After' header or increase retries/add exponential backoff to handle rate limits gracefully.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "06_rate_limited",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "rate_limited",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1385,
+     "output_tokens": 95,
+     "seconds": 1.33
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Job order_sync for run_date 2026-10-21 failed as indicated by the alert.",
+    "evidence": [],
+    "suggested_fix": "Inspect job logs and history for run_date 2026-10-21.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "06_rate_limited",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "rate_limited",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "http_429",
+     "gave_up",
+     "page"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10157,
+     "output_tokens": 377,
+     "seconds": 2.05
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "rate_limited",
+    "root_cause": "The vendor API throttled requests (HTTP 429 Too Many Requests) while downloading page 7 for run_date 2026-10-21, causing the downloader to exhaust all configured retries and fail the job.",
+    "evidence": [
+     {
+      "tool_call_id": "c7",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:39Z | max retries exceeded (429 Too Many Requests)",
+      "why": "Shows the job failed with max retries exceeded due to 429 Too Many Requests."
+     },
+     {
+      "tool_call_id": "c13",
+      "quote": "2026-10-22T02:01:39Z ERROR downloader [os-20261021] max retries exceeded for orders_2026-10-21.csv page=7 (429 Too Many Requests); download incomplete: 6 of 12 pages",
+      "why": "Downloader logs show rate limiting (429) hitting page 7 repeatedly until retries were exhausted."
+     }
+    ],
+    "suggested_fix": "Increase max_retries or backoff_seconds in pipeline.yaml, or coordinate with the vendor to raise rate limits for the API endpoint.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "08_late_data",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "late_data",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "08_late_data-agent-r1.jsonl",
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 6,
+     "tool_calls": 5,
+     "input_tokens": 18844,
+     "output_tokens": 529,
+     "seconds": 70.88
+    }
+   },
+   "diagnosis": {
+    "status": "no_fault",
+    "category": null,
+    "root_cause": "The finance reconciliation alert fired because the vendor invoice count included 4 duplicate rows which were correctly identified and deduped by the pipeline's loader (3050 rows read, 4 deduped, 3046 loaded). The pipeline processed everything it received without data loss.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "file=orders_2026-10-20.csv run_date=2026-10-20 rows_read=3050 rows_loaded=3046 rows_rejected=0 rows_deduped=4 gap=0 orders_in_table=3046",
+      "why": "Reconciliation shows 3050 rows read and 3046 loaded, with 4 rows correctly deduped (gap=0)."
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "2026-10-21T02:01:43Z INFO loader [os-20261020] deduped 4 rows on order_id",
+      "why": "Loader logs confirm 4 duplicate rows were successfully deduped, accounting for the difference between raw vendor count and loaded orders table count."
+     }
+    ],
+    "suggested_fix": "No fix needed; the pipeline operated as expected and the data is healthy. Adjust the finance reconciliation rule if needed to account for expected deduplication.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "08_late_data",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "late_data",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1389,
+     "output_tokens": 81,
+     "seconds": 3.58
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The user prompt specifies that no tools can be called and to answer from the alert alone.",
+    "evidence": [],
+    "suggested_fix": "Investigate with the available pipeline tools when access is restored.",
+    "confidence": "high",
+    "next_checks": [
+     "None"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "08_late_data",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "late_data",
+   "end_reason": "validation_failed",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [
+    "schema: evidence.1.quote: String should have at most 200 characters"
+   ],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10507,
+     "output_tokens": 411,
+     "seconds": 2.26
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "No valid diagnosis was submitted. [downgraded: validation_failed]",
+    "evidence": [],
+    "suggested_fix": "",
+    "confidence": "low",
+    "next_checks": [
+     "validator: schema: evidence.1.quote: String should have at most 200 characters"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "08_late_data",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "late_data",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "08_late_data-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "revised_rows",
+     "revision"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 9,
+     "tool_calls": 9,
+     "input_tokens": 37087,
+     "output_tokens": 696,
+     "seconds": 12.14
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "late_data",
+    "root_cause": "The vendor updated/revised the data for 2026-10-20 (vendor_revision=2 with 3310 rows) after the pipeline had already ingested the initial version (vendor_revision=1 with 3050 rows). Because the pipeline fetched the data on the initial daily run before the vendor finalized/revised it, the orders table has fewer rows than the vendor's final invoice count.",
+    "evidence": [
+     {
+      "tool_call_id": "t1",
+      "quote": "Finance reconciliation for 2026-10-20 failed: vendor invoice count is 9% higher than the orders table count",
+      "why": "Shows the alert triggered due to count mismatch for 2026-10-20."
+     },
+     {
+      "tool_call_id": "t8",
+      "quote": "verify orders_2026-10-20.csv: remote checksum sha1:242743e387721988 differs from ingested sha1:92290911c2411f4b (remote rows=3310 vendor_revision=2, ingested rows=3050 vendor_revision=1)",
+      "why": "Shows the vendor revised the file after initial ingestion, adding more rows (late data)."
+     }
+    ],
+    "suggested_fix": "Implement a late data re-sync or revision check mechanism to re-download and re-load dates where the vendor revision increases.",
+    "confidence": "high",
+    "next_checks": [
+     "Check if there is an automated backfill or re-sync mechanism for revised vendor revisions."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "08_late_data",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "late_data",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1389,
+     "output_tokens": 65,
+     "seconds": 3.35
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Unable to investigate using tools as per prompt instructions.",
+    "evidence": [],
+    "suggested_fix": "Review tool access and rerun investigation.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "08_late_data",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "late_data",
+   "end_reason": "validation_failed",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [
+    "schema: evidence.0.quote: String should have at most 200 characters"
+   ],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10507,
+     "output_tokens": 441,
+     "seconds": 2.15
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "No valid diagnosis was submitted. [downgraded: validation_failed]",
+    "evidence": [],
+    "suggested_fix": "",
+    "confidence": "low",
+    "next_checks": [
+     "validator: schema: evidence.0.quote: String should have at most 200 characters"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "09_empty_upstream",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "empty_upstream",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "09_empty_upstream-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "rows_zero",
+     "header_only",
+     "read_zero"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 6,
+     "tool_calls": 5,
+     "input_tokens": 18800,
+     "output_tokens": 678,
+     "seconds": 8.29
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "empty_upstream",
+    "root_cause": "The upstream vendor API returned an empty file (0 rows, header only) for 2026-10-21, which the pipeline successfully ingested as zero records, causing a 100% volume drop.",
+    "evidence": [
+     {
+      "tool_call_id": "t4",
+      "quote": "2026-10-22T02:00:08Z INFO downloader [os-20261021] GET https://vendor.example.com/api/v2/orders?date=2026-10-21&page=1 -> 200 (0 rows)",
+      "why": "The vendor API returned 200 OK with 0 rows for date=2026-10-21."
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "2026-10-22T02:00:10Z INFO downloader [os-20261021] downloaded orders_2026-10-21.csv rows=0 bytes=58 (header only) checksum=sha1:c4eb4b4b09ee51d4 vendor_revision=1",
+      "why": "The downloader successfully retrieved an empty file containing only headers."
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=0 rows_loaded=0 rows_rejected=0 rows_deduped=0 gap=0 orders_in_table=0",
+      "why": "Reconciliation shows 0 rows read and loaded for run_date 2026-10-21."
+     }
+    ],
+    "suggested_fix": "Verify upstream availability with the vendor and re-sync orders for 2026-10-21 if data is now available.",
+    "confidence": "high",
+    "next_checks": [
+     "Check with the vendor if orders for 2026-10-21 were missing or if there was an upstream publishing outage."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "09_empty_upstream",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "empty_upstream",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1394,
+     "output_tokens": 147,
+     "seconds": 3.34
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The order_sync job for 2026-10-21 failed to ingest any orders, resulting in 100% volume drop compared to the 7-day average.",
+    "evidence": [],
+    "suggested_fix": "Check pipeline execution logs and retry the order sync for 2026-10-21 if upstream data is available.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect order_sync job logs and downloader records for 2026-10-21"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "09_empty_upstream",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "empty_upstream",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 9319,
+     "output_tokens": 316,
+     "seconds": 3.75
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "empty_upstream",
+    "root_cause": "The upstream vendor API returned an empty file for 2026-10-21, leading to 0 records processed and loaded, which triggered the volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-21.csv | 2026-10-21 | 0 | 0 | 0 | 0 | sha1:c4eb4b4b09ee51d4",
+      "why": "The ingest manifest shows that 0 rows were read for 2026-10-21."
+     },
+     {
+      "tool_call_id": "c9",
+      "quote": "Order volume for 2026-10-21 is 100% below the 7-day average (threshold 25%)",
+      "why": "The alert triggered because order volume for 2026-10-21 dropped by 100%."
+     }
+    ],
+    "suggested_fix": "Contact the vendor to verify why the order export for 2026-10-21 was empty and re-run the os-20261021 job once the correct data is available.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "09_empty_upstream",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "empty_upstream",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "09_empty_upstream-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "rows_zero",
+     "header_only",
+     "read_zero"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 3,
+     "tool_calls": 5,
+     "input_tokens": 9747,
+     "output_tokens": 506,
+     "seconds": 4.61
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "empty_upstream",
+    "root_cause": "The vendor upstream API returned an empty file (header only, 0 rows) for 2026-10-21, which the pipeline successfully processed as zero records.",
+    "evidence": [
+     {
+      "tool_call_id": "t4",
+      "quote": "downloader [os-20261021] downloaded orders_2026-10-21.csv rows=0 bytes=58 (header only) checksum=sha1:c4eb4b4b09ee51d4 vendor_revision=1",
+      "why": "Shows the downloader successfully downloaded a header-only file containing 0 rows from the upstream vendor API."
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=0 rows_loaded=0 rows_rejected=0 rows_deduped=0 gap=0 orders_in_table=0",
+      "why": "Reconcile counts confirm 0 rows were read and loaded for the 2026-10-21 run date."
+     }
+    ],
+    "suggested_fix": "Check with the vendor as to why no orders were returned for 2026-10-21.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "09_empty_upstream",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "empty_upstream",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1394,
+     "output_tokens": 135,
+     "seconds": 1.65
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "The order volume for 2026-10-21 dropped 100% due to an empty or missing upstream file, but no investigation tools are available.",
+    "evidence": [],
+    "suggested_fix": "Check upstream vendor availability and re-run downloader for 2026-10-21.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect vendor files and downloader logs for 2026-10-21"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "09_empty_upstream",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "empty_upstream",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 9319,
+     "output_tokens": 295,
+     "seconds": 4.1
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "empty_upstream",
+    "root_cause": "The upstream vendor API delivered an empty file (0 rows read) for run_date 2026-10-21, causing the order sync pipeline to ingest zero orders and trigger the volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-21.csv | 2026-10-21 | 0 | 0 | 0 | 0 | sha1:c4eb4b4b09ee51d4",
+      "why": "Ingest manifest shows 0 rows read and loaded for 2026-10-21"
+     },
+     {
+      "tool_call_id": "c9",
+      "quote": "Order volume for 2026-10-21 is 100% below the 7-day average (threshold 25%)",
+      "why": "Alert raised because order volume dropped to zero"
+     }
+    ],
+    "suggested_fix": "Check with the vendor why no orders were returned for 2026-10-21, and backfill the data once the vendor provides the correct file.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "11_disk_full",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "resource_exhaustion",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 1,
+   "trace": "11_disk_full-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "enospc",
+     "errno"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 6,
+     "tool_calls": 4,
+     "input_tokens": 18528,
+     "output_tokens": 1208,
+     "seconds": 9.47
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "resource_exhaustion",
+    "root_cause": "The order_sync job for run_date 2026-10-21 failed mid-load with an OSError [Errno 28] (No space left on device) while writing to the SQLite database, causing 1,590 rows to be dropped and triggering the volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "t2",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=3100 rows_loaded=1500 rows_rejected=1 rows_deduped=9 gap=1590 orders_in_table=1500",
+      "why": "Shows that 1590 rows disappeared inside the loader due to incomplete loading."
+     },
+     {
+      "tool_call_id": "t3",
+      "quote": "2026-10-22T02:02:14Z ERROR loader [os-20261021] batch 4/7 failed: OSError [Errno 28] No space left on device (ENOSPC) writing /data/sqlite/orders.db-wal",
+      "why": "Indicates host ran out of disk space during the loader phase."
+     },
+     {
+      "tool_call_id": "t4",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:02:14Z | OSError: [Errno 28] No space left on device",
+      "why": "Confirms the job failed with a disk space error after partially loading rows."
+     }
+    ],
+    "suggested_fix": "Free up disk space on the /data volume (e.g., prune old database WAL files, logs, or temporary downloads), then re-run the failed os-20261021 job.",
+    "confidence": "high",
+    "next_checks": [
+     "Check current disk usage on /data and clear old logs or temporary files if needed before retrying the job."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "11_disk_full",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "resource_exhaustion",
+   "end_reason": "validation_failed",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [
+    "status diagnosed needs at least one evidence item"
+   ],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 148,
+     "seconds": 1.95
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Order volume for 2026-10-21 was 45% below the 7-day average, triggering the volume drop alert, likely due to an empty or incomplete upstream vendor file. [downgraded: validation_failed]",
+    "evidence": [],
+    "suggested_fix": "Verify upstream vendor file contents and re-run downloader and loader for 2026-10-21 if incomplete.",
+    "confidence": "low",
+    "next_checks": [
+     "validator: status diagnosed needs at least one evidence item"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "11_disk_full",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "diagnosed",
+   "expected_category": "resource_exhaustion",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "enospc",
+     "errno"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10647,
+     "output_tokens": 521,
+     "seconds": 5.03
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "resource_exhaustion",
+    "root_cause": "The order_sync job for run_date 2026-10-21 failed mid-load (at batch 4/7) due to disk space exhaustion ([Errno 28] No space left on device), resulting in only 1500 of 3100 read rows being loaded and triggering the volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "c7",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:02:14Z | OSError: [Errno 28] No space left on device",
+      "why": "Shows the job failed due to disk space exhaustion."
+     },
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:02:14Z ERROR loader [os-20261021] batch 4/7 failed: OSError [Errno 28] No space left on device (ENOSPC) writing /data/sqlite/orders.db-wal",
+      "why": "Explains the exact error when loading batch 4/7 for run_date 2026-10-21, causing only partial data to be loaded."
+     },
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-21.csv | 2026-10-21 | 3100 | 1500 | 1 | 9 | sha1:8dcd1cef5fe92b6f",
+      "why": "Shows that rows_read was 3100 but only 1500 were loaded before the job failed."
+     }
+    ],
+    "suggested_fix": "Free up disk space on the /data volume, clear out old WAL files or temporary data, and retry or re-run the failed job os-20261021.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "11_disk_full",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "resource_exhaustion",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "11_disk_full-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "errno"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 2,
+     "tool_calls": 4,
+     "input_tokens": 5491,
+     "output_tokens": 509,
+     "seconds": 6.93
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "resource_exhaustion",
+    "root_cause": "The order sync job for 2026-10-21 failed mid-load with an OSError due to running out of disk space, resulting in partial data loading and a volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "t3",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:02:14Z | OSError: [Errno 28] No space left on device",
+      "why": "Job failed with disk space exhaustion error."
+     },
+     {
+      "tool_call_id": "t2",
+      "quote": "file=orders_2026-10-21.csv run_date=2026-10-21 rows_read=3100 rows_loaded=1500 rows_rejected=1 rows_deduped=9 gap=1590 orders_in_table=1500",
+      "why": "Only partial rows were loaded before the job failed."
+     }
+    ],
+    "suggested_fix": "Free up disk space on the pipeline host, clear temporary files or logs, and rerun the loader for run_date 2026-10-21.",
+    "confidence": "high",
+    "next_checks": [
+     "Check disk space on the host running the pipeline and clean up old logs or data files."
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "11_disk_full",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "resource_exhaustion",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 106,
+     "seconds": 3.8
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Order volume dropped 45% due to an empty or partial upstream vendor file.",
+    "evidence": [],
+    "suggested_fix": "Verify upstream vendor file delivery and re-run downloader if incomplete.",
+    "confidence": "low",
+    "next_checks": [
+     "Check vendor files and downloader logs for 2026-10-21"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "11_disk_full",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "diagnosed",
+   "expected_category": "resource_exhaustion",
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "enospc",
+     "errno"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10647,
+     "output_tokens": 490,
+     "seconds": 2.3
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "resource_exhaustion",
+    "root_cause": "The order_sync job for run_date 2026-10-21 failed halfway through loading because the host ran out of disk space ([Errno 28] No space left on device), resulting in only a partial load of 1,500 out of 3,100 rows and triggering the volume drop alert.",
+    "evidence": [
+     {
+      "tool_call_id": "c7",
+      "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:02:14Z | OSError: [Errno 28] No space left on device",
+      "why": "Shows the job failed due to running out of disk space."
+     },
+     {
+      "tool_call_id": "c15",
+      "quote": "2026-10-22T02:02:14Z ERROR loader [os-20261021] batch 4/7 failed: OSError [Errno 28] No space left on device (ENOSPC) writing /data/sqlite/orders.db-wal",
+      "why": "Gives the exact error message indicating resource exhaustion on the device."
+     },
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-21.csv | 2026-10-21 | 3100 | 1500 | 1 | 9 | sha1:8dcd1cef5fe92b6f",
+      "why": "Manifest shows only 1500 rows loaded out of 3100 read before the job failed halfway through."
+     }
+    ],
+    "suggested_fix": "Free up disk space on /data, resize the volume, and retry or rerun the failed job os-20261021.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "13_false_alarm",
+   "system": "agent",
+   "run": 1,
+   "expected_status": "no_fault",
+   "expected_category": null,
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "13_false_alarm-agent-r1.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "seasonality"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 9,
+     "tool_calls": 12,
+     "input_tokens": 39170,
+     "output_tokens": 925,
+     "seconds": 13.39
+    }
+   },
+   "diagnosis": {
+    "status": "no_fault",
+    "category": null,
+    "root_cause": "The volume drop alert was triggered because 2026-10-18 was a Sunday (volume 2102), which naturally experiences lower order volume compared to weekdays (~3000), resulting in a 26% drop against the 7-day rolling average (exceeding the 25% threshold). This is a known weekend seasonality pattern with no data loss.",
+    "evidence": [
+     {
+      "tool_call_id": "t1",
+      "quote": "alr-20261019-0113 | 2026-10-19T06:00:00Z | volume_drop | Order volume for 2026-10-18 is 26% below the 7-day average (threshold 25%) | open | NULL",
+      "why": "Shows the alert raised for 2026-10-18 due to volume drop compared to the 7-day average."
+     },
+     {
+      "tool_call_id": "t7",
+      "quote": "2026-10-18 | 2102",
+      "why": "Shows that 2026-10-18 was a Sunday, matching the lower weekend order volume pattern (~2100 vs ~3000 on weekdays)."
+     },
+     {
+      "tool_call_id": "t12",
+      "quote": "alr-hist-002 | 2026-10-12T06:00:00Z | volume_drop | Order volume for 2026-10-11 is 29% below the 7-day average | closed | weekend seasonality; no action needed",
+      "why": "Shows historical precedent where volume drop alerts on weekends are routinely resolved as weekend seasonality with no action needed."
+     }
+    ],
+    "suggested_fix": "No fix required. Consider adjusting the volume_drop alert rule to account for day-of-week seasonality to avoid false positives on weekends.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "13_false_alarm",
+   "system": "b0",
+   "run": 1,
+   "expected_status": "no_fault",
+   "expected_category": null,
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 84,
+     "seconds": 1.28
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Insufficient tools available to investigate; diagnosing based on prompt instructions.",
+    "evidence": [],
+    "suggested_fix": "Enable investigation tools to gather concrete evidence.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect pipeline logs or tool outputs"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "13_false_alarm",
+   "system": "b1",
+   "run": 1,
+   "expected_status": "no_fault",
+   "expected_category": null,
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [
+     "seasonality"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10003,
+     "output_tokens": 413,
+     "seconds": 2.43
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "config_change",
+    "root_cause": "The alert was raised due to lower order volume on Sunday, October 18, 2026, which is a recurring pattern of weekend seasonality (matching historical alerts from previous weekends) rather than an actual pipeline failure or data loss.",
+    "evidence": [
+     {
+      "tool_call_id": "c9",
+      "quote": "alr-hist-001 | 2026-10-05T06:00:00Z | volume_drop | Order volume for 2026-10-04 is 29% below the 7-day average | closed | weekend seasonality; no action needed",
+      "why": "Shows that previous volume_drop alerts on Sundays (Oct 4 and Oct 11) were caused by weekend seasonality and closed as no action needed. Oct 18, 2026 was also a Sunday."
+     },
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-17.csv | 2026-10-17 | 2128 | 2120 | 1 | 7 | sha1:19a4f1b2a82ac358",
+      "why": "Demonstrates that Saturday (Oct 17) and Sunday (Oct 18) naturally have lower order volumes (~2100) compared to weekdays (~2900-3000), triggering the 25% drop threshold due to weekend seasonality."
+     }
+    ],
+    "suggested_fix": "Acknowledge and close the alert as weekend seasonality, similar to historical alerts alr-hist-001 and alr-hist-002.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "13_false_alarm",
+   "system": "agent",
+   "run": 2,
+   "expected_status": "no_fault",
+   "expected_category": null,
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "trace": "13_false_alarm-agent-r2.jsonl",
+   "score": {
+    "status_ok": true,
+    "category_ok": true,
+    "hits": [
+     "reconciled"
+    ],
+    "strict": true,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 5,
+     "tool_calls": 7,
+     "input_tokens": 20286,
+     "output_tokens": 630,
+     "seconds": 7.32
+    }
+   },
+   "diagnosis": {
+    "status": "no_fault",
+    "category": null,
+    "root_cause": "The pipeline successfully processed all records received from the vendor for 2026-10-18 (Sunday). The alert triggered because weekend order volume is naturally lower than weekday volume, dropping 26% below the 7-day rolling average against a 25% threshold.",
+    "evidence": [
+     {
+      "tool_call_id": "t3",
+      "quote": "file=orders_2026-10-18.csv run_date=2026-10-18 rows_read=2107 rows_loaded=2102 rows_rejected=1 rows_deduped=4 gap=0 orders_in_table=2102",
+      "why": "All rows received from upstream were fully processed with zero internal pipeline loss (gap=0)."
+     },
+     {
+      "tool_call_id": "t1",
+      "quote": "Order volume for 2026-10-18 is 26% below the 7-day average (threshold 25%)",
+      "why": "The alert fired purely due to normal weekend volume drops (Oct 18 was Sunday, mirroring Oct 17 Saturday) compared to the rolling 7-day average."
+     }
+    ],
+    "suggested_fix": "No fix needed. Consider adjusting the volume drop alert rule to account for day-of-week seasonality (e.g., comparing against the same day of the previous week).",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "13_false_alarm",
+   "system": "b0",
+   "run": 2,
+   "expected_status": "no_fault",
+   "expected_category": null,
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 1393,
+     "output_tokens": 122,
+     "seconds": 1.54
+    }
+   },
+   "diagnosis": {
+    "status": "insufficient_evidence",
+    "category": null,
+    "root_cause": "Order volume dropped 26% below the 7-day average for 2026-10-18.",
+    "evidence": [],
+    "suggested_fix": "Check upstream vendor file delivery for 2026-10-18.",
+    "confidence": "low",
+    "next_checks": [
+     "Inspect upstream vendor files and downloader logs for 2026-10-18"
+    ]
+   },
+   "live_calls": 0
+  },
+  {
+   "incident": "13_false_alarm",
+   "system": "b1",
+   "run": 2,
+   "expected_status": "no_fault",
+   "expected_category": null,
+   "end_reason": "submitted",
+   "quotes_caught": 0,
+   "repairs": 0,
+   "validation_errors": [],
+   "score": {
+    "status_ok": false,
+    "category_ok": false,
+    "hits": [
+     "seasonality"
+    ],
+    "strict": false,
+    "ungrounded": 0,
+    "cost": {
+     "turns": 1,
+     "tool_calls": 0,
+     "input_tokens": 10003,
+     "output_tokens": 495,
+     "seconds": 2.45
+    }
+   },
+   "diagnosis": {
+    "status": "diagnosed",
+    "category": "config_change",
+    "root_cause": "The volume_drop alert was triggered because order volume on Sunday, October 18, 2026, dropped by 26% (exceeding the 25% threshold) due to normal weekend seasonality, identical to previous weekend alerts that were closed as no action needed.",
+    "evidence": [
+     {
+      "tool_call_id": "c9",
+      "quote": "alr-hist-001 | 2026-10-05T06:00:00Z | volume_drop | Order volume for 2026-10-04 is 29% below the 7-day average | closed | weekend seasonality; no action needed",
+      "why": "Shows historical instances of volume_drop alerts on Sundays due to weekend seasonality where order volumes drop below the threshold."
+     },
+     {
+      "tool_call_id": "c9",
+      "quote": "alr-20261019-0113 | 2026-10-19T06:00:00Z | volume_drop | Order volume for 2026-10-18 is 26% below the 7-day average (threshold 25%) | open | NULL",
+      "why": "The current alert raised for October 18, 2026, which was a Sunday, matching previous weekend volume drops."
+     },
+     {
+      "tool_call_id": "c6",
+      "quote": "orders_2026-10-18.csv | 2026-10-18 | 2107 | 2102 | 1 | 4 | sha1:160018c872a6a12b",
+      "why": "Confirms that rows read and loaded for October 18 (Sunday) were lower (~2,100) compared to weekdays (~3,000), typical of weekend seasonality."
+     }
+    ],
+    "suggested_fix": "Review and close the alert as weekend seasonality, similar to previous occurrences on past Sundays.",
+    "confidence": "high",
+    "next_checks": []
+   },
+   "live_calls": 0
+  }
+ ]
+}

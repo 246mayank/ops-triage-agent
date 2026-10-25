@@ -1,0 +1,137 @@
+{
+ "0107612b65defdc8c08aeff6": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect job history and row counts for order_sync"
+      ],
+      "root_cause": "The user prompt states that no investigation tools can be called and answers must be submitted without tool results.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Enable tool usage to inspect job execution history and pipeline logs."
+     },
+     "id": "call_1620298",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TN3kMsEqpLHK-cL8goZxUiJENOMQw_6eHHICPAZSOKrIeFbLykRa0ATbGLEU1_HiDYr2PSOUlX0c60I3ZBiteEUwGM2QkjgfzrGKUMfDZ1wYDpWGnWUEx6iU="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect job history and row counts for order_sync"
+     ],
+     "root_cause": "The user prompt states that no investigation tools can be called and answers must be submitted without tool results.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Enable tool usage to inspect job execution history and pipeline logs."
+    },
+    "id": "call_1620298",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1089,
+   "latency_ms": 4328,
+   "output_tokens": 92
+  }
+ },
+ "ebcc6c190a89efd6fc43b6af": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "silent_data_loss",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Examine downloader and validator logs",
+       "Check upstream vendor files"
+      ],
+      "root_cause": "Order volume dropped below threshold on 2026-10-18.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Investigate upstream files and pipeline logs for missing records."
+     },
+     "id": "call_1496870",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TZmlaB4fn3hc3itbLnsBK1R0X57zIW5YvZeX4KcN5846NX8XNcpSuKkirdR9TXtg68rsMsFlZoq4PktPvkuABd7DUASanJ1bzovR2uY6Wen3WJ0ES093B9BA="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "silent_data_loss",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Examine downloader and validator logs",
+      "Check upstream vendor files"
+     ],
+     "root_cause": "Order volume dropped below threshold on 2026-10-18.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Investigate upstream files and pipeline logs for missing records."
+    },
+    "id": "call_1496870",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1277,
+   "latency_ms": 4294,
+   "output_tokens": 102
+  }
+ },
+ "f680d93e29a6afa64fe0f7ad": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "rate_limited",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect pipeline logs or tool outputs"
+      ],
+      "root_cause": "Insufficient tools available to investigate; diagnosing based on prompt instructions.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Enable investigation tools to gather concrete evidence."
+     },
+     "id": "call_1063374",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TGszDW0AFUFKL5tWw4R5MVNh7mvvQVPFvYDSEgKqBGU_D3rMhqtYr-NBcxdVf07wi5VZ07rOJtVEJxpyG8ZJYq_K9EANDgkOtEWkYANAM4odwxhTH6dmQ-bQ="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "rate_limited",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect pipeline logs or tool outputs"
+     ],
+     "root_cause": "Insufficient tools available to investigate; diagnosing based on prompt instructions.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Enable investigation tools to gather concrete evidence."
+    },
+    "id": "call_1063374",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1393,
+   "latency_ms": 1276,
+   "output_tokens": 84
+  }
+ }
+}

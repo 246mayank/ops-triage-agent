@@ -12,7 +12,7 @@ from google.genai import errors, types
 
 from triage.schema import AssistantTurn, Message, ToolCall, Usage
 
-DEFAULT_MODEL = os.environ.get("TRIAGE_MODEL", "gemini-2.5-flash-lite")
+DEFAULT_MODEL = os.environ.get("TRIAGE_MODEL", "gemini-3.5-flash-lite")
 
 
 def load_dotenv(path: str = ".env") -> None:
@@ -23,7 +23,7 @@ def load_dotenv(path: str = ".env") -> None:
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+            os.environ[k.strip()] = v.strip().strip('"').strip("'")  # .env wins over stale env
 
 
 class GeminiClient:

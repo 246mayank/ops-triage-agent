@@ -1,0 +1,675 @@
+{
+ "0483aaf1d6794df7253e74c7": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT run_date, COUNT(*) FROM orders WHERE order_id LIKE '%20261021%' GROUP BY run_date"
+     },
+     "id": "call_1039758",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TjpTk4LHCTAQ8JPktSrzY6xRvlb6aZBm8fJaR_sNOtELTkFc0m2BGfHdbG4yTNePDewa9UJQmdTNkAF6xqg4bX693dwkSdaQAx-echNMkLAHe-W1N5tmgdMQ="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT run_date, COUNT(*) FROM orders WHERE order_id LIKE '%20261021%' GROUP BY run_date"
+    },
+    "id": "call_1039758",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 3404,
+   "latency_ms": 1142,
+   "output_tokens": 44
+  }
+ },
+ "095cd33fdde59d353bc4cf20": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_id": "os-20261021",
+      "level": "INFO",
+      "service": "loader"
+     },
+     "id": "call_937722",
+     "name": "search_logs"
+    },
+    "thought_signature": "EmAKXgFpFH0TixbAqr2lrTTIBWtTpeHEYu7AiiARDH1wQuSuwcAr9wQjG0y57RndTbZkN9KfC7d2uCLmO3RmB3NHNNFxLSpjVnBJy6MPxOnNF8M5gxqWkRzUhibOp7Ldraw="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_id": "os-20261021",
+     "level": "INFO",
+     "service": "loader"
+    },
+    "id": "call_937722",
+    "name": "search_logs"
+   }
+  ],
+  "usage": {
+   "input_tokens": 3516,
+   "latency_ms": 1532,
+   "output_tokens": 39
+  }
+ },
+ "0ac551f4e8ed3e2c65cbd00d": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT * FROM alerts WHERE alert_id = 'alr-20261022-0102'"
+     },
+     "id": "call_957521",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TMMf33W0WkVqu_Y-_y27dchw2LUGfuIx9ayhAY-t2bSnAoI9HNgEOJOD3NqXly12OavmtusmkWXB5NdJEsjSMCza1LM2-valOav_YaB8yLs6iCR7XDpG1Puc="
+   },
+   {
+    "function_call": {
+     "args": {
+      "job_name": "order_sync",
+      "limit": 5
+     },
+     "id": "call_957522",
+     "name": "get_job_history"
+    }
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT * FROM alerts WHERE alert_id = 'alr-20261022-0102'"
+    },
+    "id": "call_957521",
+    "name": "run_sql"
+   },
+   {
+    "args": {
+     "job_name": "order_sync",
+     "limit": 5
+    },
+    "id": "call_957522",
+    "name": "get_job_history"
+   }
+  ],
+  "usage": {
+   "input_tokens": 2319,
+   "latency_ms": 1322,
+   "output_tokens": 68
+  }
+ },
+ "1f75319ecf99f7a33aaff39f": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_id": "os-20261021",
+      "level": "INFO",
+      "service": "all"
+     },
+     "id": "call_311608",
+     "name": "search_logs"
+    },
+    "thought_signature": "EmAKXgFpFH0T_8l6OVh67yD-VII2PSyFW42PW2rD9N2WiRjlZQgbNd-UaoGFBdcWIflTD7tYuukQLosxsHoackfAW0tHRqR2LkWumYC2f4Blk3pqXDDoKqxY8bItxeMud60="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_id": "os-20261021",
+     "level": "INFO",
+     "service": "all"
+    },
+    "id": "call_311608",
+    "name": "search_logs"
+   }
+  ],
+  "usage": {
+   "input_tokens": 2743,
+   "latency_ms": 3937,
+   "output_tokens": 39
+  }
+ },
+ "2376494d7dae8a4fd4452c33": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_id": "os-20261021",
+      "level": "WARN",
+      "service": "loader"
+     },
+     "id": "call_788404",
+     "name": "search_logs"
+    },
+    "thought_signature": "EmAKXgFpFH0TzhRe5JligAV5JVWepX4XyOfxqNgzinExSJUrSuDTGhkBL6cZp577NrdrMxqJuBXFDbXeG_NrJ7mILucIhePh6kKI0pVc50DGX-8MzE0CxQA-cqwe-yfF4mM="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_id": "os-20261021",
+     "level": "WARN",
+     "service": "loader"
+    },
+    "id": "call_788404",
+    "name": "search_logs"
+   }
+  ],
+  "usage": {
+   "input_tokens": 2983,
+   "latency_ms": 1296,
+   "output_tokens": 39
+  }
+ },
+ "3418606fc0f31c46bc41c40a": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+     },
+     "id": "call_948987",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0T85WjQeP7QLv214p10EUetnK0oSb9HAJr_aY04JR4TLf2t2nQDEWU_ML6v1K3lLtv3LotK4tvW-BaBSkTzGfhHyLJuchWjr3Y_y2WLY2q7OuPY7U5JMJsZ84="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+    },
+    "id": "call_948987",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 3866,
+   "latency_ms": 5774,
+   "output_tokens": 42
+  }
+ },
+ "343e2d8c33da21a8c2328f97": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+     },
+     "id": "call_992773",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TaGWK6dWRbfg8S2rQyAW89mvvrs6kz4OUBssMesYlr5QNQuPVmQJI4IKQI-hwC59UrF1H4v65DZRNfWD-jbtSeocKqXdIZZe-S_Iy_XawgTUw4f24LgpOWiM="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+    },
+    "id": "call_992773",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 3283,
+   "latency_ms": 1668,
+   "output_tokens": 42
+  }
+ },
+ "4dbe23e4123adcfde844fc60": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT count(*), order_id FROM orders WHERE run_date = '2026-10-21' GROUP BY order_id HAVING count(*) > 1"
+     },
+     "id": "call_828743",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TkU90876x_XSfanc89Tbgt3u8TtUhkpiH8m2KDgBtLV6SGZJ1ARD4GcCSBoWqulKC38M07OfTwbbwbczotBwqCzzvEJkvYaK5UPND2rjXzjiH7Q5BnD8Rzgc="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT count(*), order_id FROM orders WHERE run_date = '2026-10-21' GROUP BY order_id HAVING count(*) > 1"
+    },
+    "id": "call_828743",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 5748,
+   "latency_ms": 3457,
+   "output_tokens": 52
+  }
+ },
+ "6c03bd0709110e412d42fe6d": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT * FROM orders WHERE order_id LIKE '%00501%'"
+     },
+     "id": "call_1082272",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TsmWxmUPPG3Wmct1DOvjYSmH2mTqjxsy6_grtVsFn4bcRXSPXrtDVYmiTnb8ivVENBqewPjz1P6OYum_LD-UGbACN5f20qBZDXJ8IkiokG47w7twzBuCXw1A="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT * FROM orders WHERE order_id LIKE '%00501%'"
+    },
+    "id": "call_1082272",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 3987,
+   "latency_ms": 5748,
+   "output_tokens": 31
+  }
+ },
+ "70d6bbea81acb65d639e93fd": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_id": "os-20261021",
+      "level": "INFO",
+      "pattern": "worker",
+      "service": "loader"
+     },
+     "id": "call_916708",
+     "name": "search_logs"
+    },
+    "thought_signature": "EmAKXgFpFH0TgGwO-dzOC6m60llJgktRi3SN3e00oO1J9H8Sx5Nw3HxVarpp6rPd8nM7v9nkUqPIzTVS6336kkNPsOFfA_P1CBVYQNnCAMCeVmADSbcHwKPLp-TqXzsjOJg="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_id": "os-20261021",
+     "level": "INFO",
+     "pattern": "worker",
+     "service": "loader"
+    },
+    "id": "call_916708",
+    "name": "search_logs"
+   }
+  ],
+  "usage": {
+   "input_tokens": 4640,
+   "latency_ms": 26848,
+   "output_tokens": 45
+  }
+ },
+ "73d84fa275c3f6c0f50a6b12": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+     },
+     "id": "call_1019797",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TX6KkFSsOp0AB2711fo8Mhd49KuBF42judSW2hkeebnobFI9xH6-vpeH-Oa-4xlSVoI7G0oMli06KsVNjCRiFy3OzsrOBC3cBV239rzKhFnEJTtuVP10yODs="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+    },
+    "id": "call_1019797",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 5955,
+   "latency_ms": 3055,
+   "output_tokens": 42
+  }
+ },
+ "80ca65451d3901e2d83eea90": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT rowid, * FROM orders WHERE order_id LIKE 'ORD-20261021-%' ORDER BY rowid DESC LIMIT 5"
+     },
+     "id": "call_945323",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0Tm9rcwBL8tJUMZySvO20qtaNLe1xqWvpY-qMuYMX8H7U9ysiHqJm8aNeYl3FqY015J1T7EjIfhH9BUKaGWp7GRDtWfI4xSr2QTra95F2MWP_ctDb-k16SyJc="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT rowid, * FROM orders WHERE order_id LIKE 'ORD-20261021-%' ORDER BY rowid DESC LIMIT 5"
+    },
+    "id": "call_945323",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 6017,
+   "latency_ms": 3070,
+   "output_tokens": 48
+  }
+ },
+ "88eb4f4f788d2bacfdf62c5f": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "concurrency_race",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:55Z | IntegrityError: UNIQUE constraint failed: orders.order_id",
+        "tool_call_id": "t2",
+        "why": "Job os-20261021 failed with a UNIQUE constraint violation on orders.order_id."
+       },
+       {
+        "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+        "tool_call_id": "t3",
+        "why": "Two loader workers (loader-w1 and loader-w2) attempted to load the same batch concurrently, causing a duplicate key violation."
+       }
+      ],
+      "next_checks": [
+       "Check if the scheduler spawned duplicate workers or if duplicate tasks were queued for the same run_date."
+      ],
+      "root_cause": "A concurrency race occurred where two loader workers (loader-w1 and loader-w2) attempted to process and insert the same batch concurrently, resulting in a UNIQUE constraint violation on orders.order_id and failing the job run.",
+      "status": "diagnosed",
+      "suggested_fix": "Ensure loader worker task distribution uses proper locking or exclusive worker assignment per job run to prevent concurrent writes of the same data batch."
+     },
+     "id": "call_992512",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TIdlmanpdbh4uPTaKawN9ZgW6HHjVGPC-B2GeYPJYwWw7mBu6k07nisU1jmqgwylkw3-jMqsLCt78ze_ZpiZ9Y016I15mixWMqB2jbj7mVtiG-Pbl-jJpTRo="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "concurrency_race",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:55Z | IntegrityError: UNIQUE constraint failed: orders.order_id",
+       "tool_call_id": "t2",
+       "why": "Job os-20261021 failed with a UNIQUE constraint violation on orders.order_id."
+      },
+      {
+       "quote": "2026-10-22T02:01:55Z ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+       "tool_call_id": "t3",
+       "why": "Two loader workers (loader-w1 and loader-w2) attempted to load the same batch concurrently, causing a duplicate key violation."
+      }
+     ],
+     "next_checks": [
+      "Check if the scheduler spawned duplicate workers or if duplicate tasks were queued for the same run_date."
+     ],
+     "root_cause": "A concurrency race occurred where two loader workers (loader-w1 and loader-w2) attempted to process and insert the same batch concurrently, resulting in a UNIQUE constraint violation on orders.order_id and failing the job run.",
+     "status": "diagnosed",
+     "suggested_fix": "Ensure loader worker task distribution uses proper locking or exclusive worker assignment per job run to prevent concurrent writes of the same data batch."
+    },
+    "id": "call_992512",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 4064,
+   "latency_ms": 2535,
+   "output_tokens": 402
+  }
+ },
+ "b5034394b6d3c2d960073202": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+     },
+     "id": "call_874696",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0TJEim9ipxGLWNpHcMBfpz4NTGGH9QS_ZP4zes7qKMLF0wdFr7mMmSzdA_z2UfmSPfceZTKRMINZkbDf8JKepmKS7PhFZIYSJh_7aywRe3SCvxVtY09pu7AXU="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT * FROM orders WHERE order_id = 'ORD-20261021-00501'"
+    },
+    "id": "call_874696",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 6630,
+   "latency_ms": 2846,
+   "output_tokens": 42
+  }
+ },
+ "d58e795a98daee75b70c31a9": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "query": "SELECT count(*), order_id FROM orders GROUP BY order_id HAVING count(*) > 1"
+     },
+     "id": "call_904441",
+     "name": "run_sql"
+    },
+    "thought_signature": "EmAKXgFpFH0T612Pg2IEuxKkQ73T_-XpuV0FVO1Gnb5aXiFZtklBvuWGCwc3AdZV3FrEt8p1Yiv3y22Xoo4jfbMNIXtK_icpMNlA-xPTN9tkJSFQ6-xJPWYEBd1Qkr501po="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "query": "SELECT count(*), order_id FROM orders GROUP BY order_id HAVING count(*) > 1"
+    },
+    "id": "call_904441",
+    "name": "run_sql"
+   }
+  ],
+  "usage": {
+   "input_tokens": 5860,
+   "latency_ms": 3476,
+   "output_tokens": 35
+  }
+ },
+ "dc0008883d75d77a43c95f43": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "concurrency_race",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+        "tool_call_id": "t2",
+        "why": "Shows worker-w1 failing on a duplicate order_id due to a UNIQUE constraint violation."
+       },
+       {
+        "quote": "ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+        "tool_call_id": "t2",
+        "why": "Shows worker-w2 simultaneously failing on the exact same batch and order_id, confirming a concurrency race between multiple workers."
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "Multiple loader workers ran concurrently on the same job and attempted to insert the same batch/rows simultaneously, causing a UNIQUE constraint violation on orders.order_id and failing the job.",
+      "status": "diagnosed",
+      "suggested_fix": "Ensure that the loader job uses a single worker or implements proper locking/coordination to prevent concurrent workers from processing the same file and batches simultaneously."
+     },
+     "id": "call_708428",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TaPvAlu9yj-Q8JzzMBYcIg8MD8oj1OXU9L_eylnCGF2uoKvDy5ozWZjiLQ9yoh5765YNCSPglD91jkJaiD20wHXarvga8Tkb-naAUdd6c_TLmJ5O69Jp96LM="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "concurrency_race",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w1",
+       "tool_call_id": "t2",
+       "why": "Shows worker-w1 failing on a duplicate order_id due to a UNIQUE constraint violation."
+      },
+      {
+       "quote": "ERROR loader [os-20261021] batch 2/6 failed: UNIQUE constraint failed: orders.order_id (ORD-20261021-00501) worker=loader-w2",
+       "tool_call_id": "t2",
+       "why": "Shows worker-w2 simultaneously failing on the exact same batch and order_id, confirming a concurrency race between multiple workers."
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "Multiple loader workers ran concurrently on the same job and attempted to insert the same batch/rows simultaneously, causing a UNIQUE constraint violation on orders.order_id and failing the job.",
+     "status": "diagnosed",
+     "suggested_fix": "Ensure that the loader job uses a single worker or implements proper locking/coordination to prevent concurrent workers from processing the same file and batches simultaneously."
+    },
+    "id": "call_708428",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 5737,
+   "latency_ms": 5363,
+   "output_tokens": 314
+  }
+ },
+ "f09d18d02575a325ce1fba0b": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_id": "os-20261021",
+      "level": "INFO",
+      "pattern": "batch",
+      "service": "loader"
+     },
+     "id": "call_890929",
+     "name": "search_logs"
+    },
+    "thought_signature": "EmAKXgFpFH0TXiWWE2V8WJBpzN775k3QVMMTJV2MI0rNPe0MrhZ-mRkQJiThNvkwniFCYDOi4aYHDn5zbZS77bzkAwDi2gw9Rpdg70UD33cb-bEYcysyzmxpJlW-Ghmg9cE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_id": "os-20261021",
+     "level": "INFO",
+     "pattern": "batch",
+     "service": "loader"
+    },
+    "id": "call_890929",
+    "name": "search_logs"
+   }
+  ],
+  "usage": {
+   "input_tokens": 4971,
+   "latency_ms": 20160,
+   "output_tokens": 45
+  }
+ },
+ "fa4b99e3fe5ea446f42cb238": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_name": "order_sync",
+      "limit": 5
+     },
+     "id": "call_1232871",
+     "name": "get_job_history"
+    },
+    "thought_signature": "EmAKXgFpFH0TAH8SK22hR-viN8jqYf1Iee3Y369WcKbov-DE_Lh7v_xMOUIJYBP2DVcWCWnCJP5OGnUEt8B-8ZhMICGj7NQHC_PkFU34UlkpyM5TOXWXfKLRejQB85MVuJI="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_name": "order_sync",
+     "limit": 5
+    },
+    "id": "call_1232871",
+    "name": "get_job_history"
+   }
+  ],
+  "usage": {
+   "input_tokens": 2252,
+   "latency_ms": 16639,
+   "output_tokens": 26
+  }
+ },
+ "fde0c62e9da7e10f6df14649": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "job_id": "os-20261021",
+      "level": "INFO",
+      "pattern": "orders_2026-10-21.csv",
+      "service": "loader"
+     },
+     "id": "call_534371",
+     "name": "search_logs"
+    },
+    "thought_signature": "EmAKXgFpFH0TockE_KJxpcqfFOJQT6zm4uWSqPMwtIfVqpfj_QPQefT5ZxpiieDK88S2i7PMxLVGSt9oEM3OqYddr6j3O7H-4zoRmyrRo-tbvitLeQw2r4R5pBxIh7kRkm0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "job_id": "os-20261021",
+     "level": "INFO",
+     "pattern": "orders_2026-10-21.csv",
+     "service": "loader"
+    },
+    "id": "call_534371",
+    "name": "search_logs"
+   }
+  ],
+  "usage": {
+   "input_tokens": 5423,
+   "latency_ms": 26348,
+   "output_tokens": 58
+  }
+ }
+}
