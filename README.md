@@ -207,6 +207,10 @@ an instruction. There are no write, restart or fix tools at all.
 - **Scoring is string matching.** It checks that the right evidence was cited and that
   every quote exists, not that the reasoning is sound; a right answer with different but
   valid evidence scores as "evidence short".
+- **The regression gate is noisy.** It runs the agent once on 10 dev incidents, and
+  unchanged v5 has scored 6, 7 and 8 across dev runs. The same-day control run on `main`
+  scored exactly the floor (6), and the demo PR failed at 5, so the gate caught that change
+  by one incident. Running it twice per check would halve the noise at twice the quota.
 - SQLite rather than a production database, and no write or fix actions, by design.
 - Real logs contain personal data. A production version would redact it before any call to
   a hosted model.
@@ -234,6 +238,22 @@ check and the tests on every push. [eval.yml](.github/workflows/eval.yml) runs t
 live on the dev split when prompts, the loop or tools change, and fails if strict accuracy
 drops more than 1 below [eval/baseline.json](eval/baseline.json), if any ungrounded quote is
 accepted, or if an abstention incident is answered wrongly.
+
+### The gate in action
+
+[Demo PR #1](https://github.com/246mayank/ops-triage-agent/pull/1) (not for merging) makes a
+plausible-looking "latency" change to the frozen prompt: at most one tool call, and
+paraphrased evidence. The gate blocked it:
+
+| live dev run (1 run each) | strict correct | category acc. | ungrounded accepted | gate |
+|---|---|---|---|---|
+| `main`, frozen v5 ([control run](https://github.com/246mayank/ops-triage-agent/actions/runs/40178234057)) | 6/10 | 9/10 | 0 | passed (floor 6) |
+| PR #1, degraded prompt ([run](https://github.com/246mayank/ops-triage-agent/actions/runs/40178263103)) | 5/10 | 9/10 | 0 | **failed** |
+
+Against the baseline of 7 the PR scored 5; against the same-day control it was one
+incident lower (05 lost its expiry evidence). No paraphrased quote got through the
+validator. A drop of one is within run-to-run noise (see Limitations), so this shows the
+gate working, not a precise measure of the damage.
 
 ## Decisions
 
