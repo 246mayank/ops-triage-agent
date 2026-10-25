@@ -12,7 +12,7 @@ from google.genai import errors, types
 
 from triage.schema import AssistantTurn, Message, ToolCall, Usage
 
-DEFAULT_MODEL = os.environ.get("TRIAGE_MODEL", "gemini-3.5-flash-lite")
+DEFAULT_MODEL = os.environ.get("TRIAGE_MODEL") or "gemini-3.5-flash-lite"  # empty var = default
 
 
 def load_dotenv(path: str = ".env") -> None:
