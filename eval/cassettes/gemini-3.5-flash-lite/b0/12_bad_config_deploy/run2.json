@@ -1,0 +1,47 @@
+{
+ "44e103b855c359a51ee148e4": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect job history and logs for order_sync to determine why runs are failing or stuck."
+      ],
+      "root_cause": "The order_sync job has not had a successful run within the freshness SLA, indicating a stuck or failing job.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check scheduler and job logs to identify the root cause of the run failures."
+     },
+     "id": "call_2206228",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TPyvmw88cBgwnqa8SDfBRljtJLdn9ZjCEU9f4K2txHS8y6Z8qxKin1AX16r5K0PmMzRt8_tpSeftvndxrIEbtYGwubX8RuYEKM-E0iRV-DaxWo38zSIibVy0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect job history and logs for order_sync to determine why runs are failing or stuck."
+     ],
+     "root_cause": "The order_sync job has not had a successful run within the freshness SLA, indicating a stuck or failing job.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check scheduler and job logs to identify the root cause of the run failures."
+    },
+    "id": "call_2206228",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1398,
+   "latency_ms": 1737,
+   "output_tokens": 115
+  }
+ }
+}

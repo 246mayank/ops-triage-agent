@@ -1,0 +1,75 @@
+{
+ "b7d2c7d9dfb1d6cde604d7e5": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "parse_error",
+      "confidence": "high",
+      "evidence": [
+       {
+        "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:41Z | validation failed: file quarantined",
+        "tool_call_id": "c7",
+        "why": "Job failed during validation and quarantined the file for 2026-10-21"
+       },
+       {
+        "quote": "orders_2026-10-21.csv | 2026-10-21 | 2980 | 0 | 2980 | 0 | sha1:f02ebe83e838cdc6",
+        "tool_call_id": "c6",
+        "why": "Manifest shows 0 rows loaded and 2980 rows rejected for the 2026-10-21 run"
+       },
+       {
+        "quote": "2026-10-22T02:01:41Z ERROR validator [os-20261021] file orders_2026-10-21.csv quarantined: all 2980 rows rejected (policy: reject_file_on_parse_error)",
+        "tool_call_id": "c14",
+        "why": "A parse error caused all rows to be rejected and the file to be quarantined"
+       }
+      ],
+      "next_checks": [],
+      "root_cause": "The order sync job for 2026-10-21 failed validation due to a parse error (unescaped quote in field 'notes') in orders_2026-10-21.csv. Under the reject_file_on_parse_error policy, all 2980 rows were rejected and quarantined, resulting in zero rows loaded into the orders table.",
+      "status": "diagnosed",
+      "suggested_fix": "Fix the upstream data generation to escape quotes correctly in the 'notes' field, or adjust validator handling for unescaped quotes."
+     },
+     "id": "call_1098380",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TkV9gR4kbnUXmcVaZ2WREGzgUIOgdIkxCyMIvBvDae3Oo-YauwKu2vdPgqt6i57EZet0dKbpZ4L4ZalgsvDCXAXJ4Wj23CGNxao2NpxxmfkyQzSxG7iMihuU="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "parse_error",
+     "confidence": "high",
+     "evidence": [
+      {
+       "quote": "os-20261021 | 2026-10-21 | FAILED | 1 | 2026-10-22T02:00:00Z | 2026-10-22T02:01:41Z | validation failed: file quarantined",
+       "tool_call_id": "c7",
+       "why": "Job failed during validation and quarantined the file for 2026-10-21"
+      },
+      {
+       "quote": "orders_2026-10-21.csv | 2026-10-21 | 2980 | 0 | 2980 | 0 | sha1:f02ebe83e838cdc6",
+       "tool_call_id": "c6",
+       "why": "Manifest shows 0 rows loaded and 2980 rows rejected for the 2026-10-21 run"
+      },
+      {
+       "quote": "2026-10-22T02:01:41Z ERROR validator [os-20261021] file orders_2026-10-21.csv quarantined: all 2980 rows rejected (policy: reject_file_on_parse_error)",
+       "tool_call_id": "c14",
+       "why": "A parse error caused all rows to be rejected and the file to be quarantined"
+      }
+     ],
+     "next_checks": [],
+     "root_cause": "The order sync job for 2026-10-21 failed validation due to a parse error (unescaped quote in field 'notes') in orders_2026-10-21.csv. Under the reject_file_on_parse_error policy, all 2980 rows were rejected and quarantined, resulting in zero rows loaded into the orders table.",
+     "status": "diagnosed",
+     "suggested_fix": "Fix the upstream data generation to escape quotes correctly in the 'notes' field, or adjust validator handling for unescaped quotes."
+    },
+    "id": "call_1098380",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 9950,
+   "latency_ms": 2131,
+   "output_tokens": 501
+  }
+ }
+}

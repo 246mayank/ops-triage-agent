@@ -1,0 +1,41 @@
+{
+ "6858b18a2988b75c7ae968b2": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "Data quality check identified orders with mismatched timestamps.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Investigate pipeline configuration and upstream data."
+     },
+     "id": "call_1375618",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TZ0W4czwxhlUTZYIOBOt6nZnIcZrlci_rC57EFXFvnsBNNV3u5c0TpODtYlRl8BOGQr6KgIBk-EZGS3sqFDtxtRajFoX3XnoXD4tUdWflOh5zhkTZyNNUics="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "Data quality check identified orders with mismatched timestamps.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Investigate pipeline configuration and upstream data."
+    },
+    "id": "call_1375618",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1405,
+   "latency_ms": 885,
+   "output_tokens": 65
+  }
+ }
+}

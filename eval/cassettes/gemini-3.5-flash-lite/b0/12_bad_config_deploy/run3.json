@@ -1,0 +1,47 @@
+{
+ "4df468b34bf2a54af07eafe3": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "stuck_job",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Check job history and logs for order_sync to determine why runs have not succeeded since 2026-10-20."
+      ],
+      "root_cause": "The order_sync job has not had a successful run since 2026-10-20, triggering the freshness SLA alert.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Investigate job history and error logs for order_sync runs between 2026-10-20 and 2026-10-22."
+     },
+     "id": "call_1530389",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TaLR37p0s0hNBoMo8sz7DPnONrgEXkW-s5oVtnTekQ_RcHm218Y9l3UBvz2XxPjWEGd9GkYEXU8kq1QDTjKKgPlN6PPGdXdH-mirGxEyxj8-guLEUaoAFEPk="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "stuck_job",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Check job history and logs for order_sync to determine why runs have not succeeded since 2026-10-20."
+     ],
+     "root_cause": "The order_sync job has not had a successful run since 2026-10-20, triggering the freshness SLA alert.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Investigate job history and error logs for order_sync runs between 2026-10-20 and 2026-10-22."
+    },
+    "id": "call_1530389",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1398,
+   "latency_ms": 1454,
+   "output_tokens": 155
+  }
+ }
+}

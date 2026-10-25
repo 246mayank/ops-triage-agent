@@ -1,0 +1,43 @@
+{
+ "9beeacd4753bb3df035dbbe1": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "empty_upstream",
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "The order volume for 2026-10-21 dropped 100% due to an empty upstream file delivered by the vendor.",
+      "status": "diagnosed",
+      "suggested_fix": "Check upstream vendor file generation and delivery for 2026-10-21."
+     },
+     "id": "call_1111086",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TJ-SDIco7GsPC_TbFgW80fnyBmEcS4dp4YYnmS6xyZQjNlYyAi8sOaP-jV4akYaEvOlQhMGdbqmg2mZ9dxm-7lWhQqDHvcUWvQX--BYRXh3-Q8pehU8qUaO0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "empty_upstream",
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "The order volume for 2026-10-21 dropped 100% due to an empty upstream file delivered by the vendor.",
+     "status": "diagnosed",
+     "suggested_fix": "Check upstream vendor file generation and delivery for 2026-10-21."
+    },
+    "id": "call_1111086",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1394,
+   "latency_ms": 1072,
+   "output_tokens": 106
+  }
+ }
+}

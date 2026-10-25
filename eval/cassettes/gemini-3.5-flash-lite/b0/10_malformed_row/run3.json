@@ -1,0 +1,47 @@
+{
+ "6aa7b8460b3b2dcf5fdad237": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect alerts table and config history"
+      ],
+      "root_cause": "Alert raised for 100% drop in order volume but no investigation tools are available.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Enable investigation tools to determine root cause."
+     },
+     "id": "call_781014",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T4AZj5XP4IcqJ0Wh4zp6RgWKOIDZ_FiPdjt5rJMi3U-YdfTPjVwYT8TmZXe8qhHfzcm8M0kf_Jc-BJXsK4DMDvcfQxNDHtwv9juh9q0xT9Bg7RZSs6xziSNk="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect alerts table and config history"
+     ],
+     "root_cause": "Alert raised for 100% drop in order volume but no investigation tools are available.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Enable investigation tools to determine root cause."
+    },
+    "id": "call_781014",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1394,
+   "latency_ms": 933,
+   "output_tokens": 91
+  }
+ }
+}

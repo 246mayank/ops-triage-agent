@@ -1,0 +1,41 @@
+{
+ "6a50264d5f7bf2ea683e6e5b": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "high",
+      "evidence": [],
+      "next_checks": [],
+      "root_cause": "Data quality check identified orders with run_date mismatch against their order timestamps across timezone boundaries.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Investigate timezone configuration and date bucketing logic."
+     },
+     "id": "call_1529372",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TPT0AI2jE-19Jt5Jr5GphJrZeKoVO0tpTvWLCzHh58DUmaYB7hzwqsUTIhdd3lLzrdVNh3LX3o1QbedZ-Za1wc0r-JBWWbUBui3V97i9owTmFJDePyQiDUJ0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "high",
+     "evidence": [],
+     "next_checks": [],
+     "root_cause": "Data quality check identified orders with run_date mismatch against their order timestamps across timezone boundaries.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Investigate timezone configuration and date bucketing logic."
+    },
+    "id": "call_1529372",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1405,
+   "latency_ms": 8036,
+   "output_tokens": 76
+  }
+ }
+}

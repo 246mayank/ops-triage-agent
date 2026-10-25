@@ -1,0 +1,45 @@
+{
+ "5676abef95768c17d4bf541c": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect database logs and order counts for 2026-10-21"
+      ],
+      "root_cause": "The user prompt specified that no investigation tools can be called and to answer from the alert alone. Due to insufficient evidence to verify whether this is an actual data loss, config change, or genuine volume drop, we submit insufficient evidence.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Run data platform diagnostic tools when available."
+     },
+     "id": "call_1118284",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0Tm49JTHu089ZGcjxt8sljCkgGKBFLLEHfzXWRrPtjlOUWPebaryNGRPi2LpqFpl0dvmj0BMjhztyC40LJrroALaUzjD9N2QZJBBP2A2ZM42AjDtwDhiIZC2U="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect database logs and order counts for 2026-10-21"
+     ],
+     "root_cause": "The user prompt specified that no investigation tools can be called and to answer from the alert alone. Due to insufficient evidence to verify whether this is an actual data loss, config change, or genuine volume drop, we submit insufficient evidence.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Run data platform diagnostic tools when available."
+    },
+    "id": "call_1118284",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1393,
+   "latency_ms": 1306,
+   "output_tokens": 122
+  }
+ }
+}

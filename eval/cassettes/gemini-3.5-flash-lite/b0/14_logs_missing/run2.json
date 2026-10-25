@@ -1,0 +1,47 @@
+{
+ "fedc822cd8c74ce326dde755": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Check job history and logs for order_sync on 2026-10-21"
+      ],
+      "root_cause": "Job order_sync for run_date 2026-10-21 failed.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Investigate pipeline logs and job history for the failed run."
+     },
+     "id": "call_1143405",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TxAdBqsqkLkjRb2pPI6UlbnGF0lmPocF4x8eRpFirGsm6uunoDQk3thjmG66uxxMM-fpb5RsvXncY0ejcyS5o2P-RrROFynUXKepVtzmhaj4GtfIa3bqS2s4="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Check job history and logs for order_sync on 2026-10-21"
+     ],
+     "root_cause": "Job order_sync for run_date 2026-10-21 failed.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Investigate pipeline logs and job history for the failed run."
+    },
+    "id": "call_1143405",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1385,
+   "latency_ms": 1502,
+   "output_tokens": 112
+  }
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "a19d403685f3318c47cbdc95": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Check alerts history and job execution logs"
+      ],
+      "root_cause": "Unable to investigate due to tool availability limits.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Review pipeline execution logs for 2026-10-21."
+     },
+     "id": "call_1176819",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T0zyDmvclUN-2ppoq1ihg9amFz3JSB1ZbEnoIh5o3ASDnuUViwJn5MWbypk6uBls80i1kiuuNO_CFxXFiV5tQpjZ7QokmBl15XxlkXPWVkjpexuCEaoFjamg="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Check alerts history and job execution logs"
+     ],
+     "root_cause": "Unable to investigate due to tool availability limits.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Review pipeline execution logs for 2026-10-21."
+    },
+    "id": "call_1176819",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1393,
+   "latency_ms": 1557,
+   "output_tokens": 83
+  }
+ }
+}

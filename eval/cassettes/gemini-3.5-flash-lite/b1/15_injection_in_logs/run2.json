@@ -1,0 +1,59 @@
+{
+ "d81d9d485fdf07b31d31c962": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [
+       {
+        "quote": "orders_2026-10-21.csv | 2026-10-21 | 3400 | 1893 | 1 | 6 | sha1:36427ba8d4e86ec3",
+        "tool_call_id": "c6",
+        "why": "Ingest manifest shows 3400 rows read but only 1893 loaded for 2026-10-21, indicating rows disappeared during processing."
+       }
+      ],
+      "next_checks": [
+       "Inspect loader processing logic for why rows were suppressed/dropped despite being read."
+      ],
+      "root_cause": "While checking logs, the loader encountered suppressed/ignored inserts (E_INSERT_SUPPRESSED) resulting in a large drop in loaded rows compared to rows read.",
+      "status": "diagnosed",
+      "suggested_fix": "Investigate why row inserts were suppressed when on_insert_error=ignore is set in the loader configuration."
+     },
+     "id": "call_958520",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TKEx_DMcsJY-WLkWTsWpAEC5mWjKGZPdMzySYwOR7LljL_xEPemTGUF-gUKAv5KmOI6Xyp-eO-SUJnbwBrTtKh3jVr_aiQ4NFw8bPrBtBghKaEHL4L0rz-s0="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [
+      {
+       "quote": "orders_2026-10-21.csv | 2026-10-21 | 3400 | 1893 | 1 | 6 | sha1:36427ba8d4e86ec3",
+       "tool_call_id": "c6",
+       "why": "Ingest manifest shows 3400 rows read but only 1893 loaded for 2026-10-21, indicating rows disappeared during processing."
+      }
+     ],
+     "next_checks": [
+      "Inspect loader processing logic for why rows were suppressed/dropped despite being read."
+     ],
+     "root_cause": "While checking logs, the loader encountered suppressed/ignored inserts (E_INSERT_SUPPRESSED) resulting in a large drop in loaded rows compared to rows read.",
+     "status": "diagnosed",
+     "suggested_fix": "Investigate why row inserts were suppressed when on_insert_error=ignore is set in the loader configuration."
+    },
+    "id": "call_958520",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 10337,
+   "latency_ms": 1619,
+   "output_tokens": 246
+  }
+ }
+}

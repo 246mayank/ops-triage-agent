@@ -1,0 +1,45 @@
+{
+ "9a7f6ea32578cccdded3010f": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Investigate job history and logs for order_sync"
+      ],
+      "root_cause": "Unable to investigate using tools as per instructions",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Enable tools for investigation"
+     },
+     "id": "call_1945120",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0T7onUYixCsyP2qjPBrEAE_n66kh7qat1E08yqvJKguXwHlI240Tje4DrfjOs0jpPQ-vtJbu4EGsm8jOkVbuyhBkJV11fBgDUGD1tWy_1IWTNb1raYQmnboEE="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Investigate job history and logs for order_sync"
+     ],
+     "root_cause": "Unable to investigate using tools as per instructions",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Enable tools for investigation"
+    },
+    "id": "call_1945120",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1398,
+   "latency_ms": 1817,
+   "output_tokens": 72
+  }
+ }
+}

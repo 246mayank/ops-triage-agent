@@ -1,0 +1,47 @@
+{
+ "129378a70413a4dd263f3a87": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "config_change",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Investigate the job history and logs for order_sync on 2026-10-21."
+      ],
+      "root_cause": "The order_sync job for run_date 2026-10-21 failed, but investigation tools are unavailable in this context to determine the specific failure mechanism.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Check the downloader/loader logs for the specific error encountered during the order_sync job execution."
+     },
+     "id": "call_1009143",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TBck9Di6l_HRzcqBT6KWBwBa4GVdyrz3VSpEgNK2SKrIPaSlFXUYQqbiqjMK71qmCfzBKaQUKujh2uNZtjCTVdoKb3pfuZ5U2QHqAstqkGKk8qUV5yg9rTCs="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "config_change",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Investigate the job history and logs for order_sync on 2026-10-21."
+     ],
+     "root_cause": "The order_sync job for run_date 2026-10-21 failed, but investigation tools are unavailable in this context to determine the specific failure mechanism.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Check the downloader/loader logs for the specific error encountered during the order_sync job execution."
+    },
+    "id": "call_1009143",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1385,
+   "latency_ms": 7028,
+   "output_tokens": 138
+  }
+ }
+}

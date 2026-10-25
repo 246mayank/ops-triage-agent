@@ -1,0 +1,47 @@
+{
+ "4a7753b9baa7a2917b335d1e": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "empty_upstream",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Check job history and vendor files to confirm upstream volume."
+      ],
+      "root_cause": "Order volume dropped below threshold due to an upstream delivery issue.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Verify upstream vendor file status and re-run ingestion if necessary."
+     },
+     "id": "call_1038297",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TDX09ZWflkqEautU_wG5ALk77ea2oYw2KfxLUh1KWA9Ox6kXkWgVJuDPo0PkKrU4w7rtVsXelUy1be1rkdXqBhMSixczGEhDfo1Dec9S1_VVsi-xYHA5J1EQ="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "empty_upstream",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Check job history and vendor files to confirm upstream volume."
+     ],
+     "root_cause": "Order volume dropped below threshold due to an upstream delivery issue.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Verify upstream vendor file status and re-run ingestion if necessary."
+    },
+    "id": "call_1038297",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1393,
+   "latency_ms": 1269,
+   "output_tokens": 94
+  }
+ }
+}

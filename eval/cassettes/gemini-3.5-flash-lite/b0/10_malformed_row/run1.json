@@ -1,0 +1,47 @@
+{
+ "98c0dd4e20d19f4ceb2dc273": {
+  "provider_parts": [
+   {
+    "function_call": {
+     "args": {
+      "category": "empty_upstream",
+      "confidence": "low",
+      "evidence": [],
+      "next_checks": [
+       "Inspect downloader logs and vendor file manifest for 2026-10-21"
+      ],
+      "root_cause": "The order volume for 2026-10-21 dropped to zero (100% below average), likely due to an empty upstream delivery from the vendor.",
+      "status": "insufficient_evidence",
+      "suggested_fix": "Verify if the vendor sent an empty file or if the downloader failed to fetch the data for 2026-10-21."
+     },
+     "id": "call_1198606",
+     "name": "submit_diagnosis"
+    },
+    "thought_signature": "EmAKXgFpFH0TZmeGT3gYl-9SQSsJX5hrz56IWJUCerp5p7lxcEOyLgUoiPRFEpfyiZxKuVz8BsWJ40dOH3sP1jNccarTSbUuBjM4oQPlR0CVT2amb9bQdKg_EUxTZlNMwRg="
+   }
+  ],
+  "text": null,
+  "tool_calls": [
+   {
+    "args": {
+     "category": "empty_upstream",
+     "confidence": "low",
+     "evidence": [],
+     "next_checks": [
+      "Inspect downloader logs and vendor file manifest for 2026-10-21"
+     ],
+     "root_cause": "The order volume for 2026-10-21 dropped to zero (100% below average), likely due to an empty upstream delivery from the vendor.",
+     "status": "insufficient_evidence",
+     "suggested_fix": "Verify if the vendor sent an empty file or if the downloader failed to fetch the data for 2026-10-21."
+    },
+    "id": "call_1198606",
+    "name": "submit_diagnosis"
+   }
+  ],
+  "usage": {
+   "input_tokens": 1394,
+   "latency_ms": 1733,
+   "output_tokens": 144
+  }
+ }
+}
