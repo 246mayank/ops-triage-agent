@@ -78,7 +78,7 @@ flowchart LR
   `reconcile_counts`. Every result has the same envelope (ok, truncated, note, data), is
   capped at 2,000 characters, says how much was cut and how to narrow, and gets an id
   (`t1`, `t2`, …) that evidence must cite.
-- **Loop** ([src/triage/agent.py](src/triage/agent.py)): about 150 lines, no framework
+- **Loop** ([src/triage/agent.py](src/triage/agent.py)): under 200 lines, no framework
   ([ADR 001](docs/adr/001-own-loop-not-a-framework.md)). Budgets on turns, tool calls, input
   tokens and wall clock; repeated calls get "Already ran this: see tN"; when a budget runs
   out the model gets one forced turn with only `submit_diagnosis` available.
